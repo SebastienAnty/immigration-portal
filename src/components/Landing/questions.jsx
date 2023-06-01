@@ -1,0 +1,33 @@
+export const questions = [
+  "T.P.S",
+  "Asylum",
+  "Petition",
+  "Fiancé Visa",
+  "Change of Status",
+  "Visa Center",
+  "Work Permit",
+  "Green Card to Permanent",
+  "Renew 10 Year Green Card",
+  "Citizenship",
+  "Biden Parole",
+  "U Visa",
+  "Widow(er)/VAWA",
+  "Travel Document",
+];
+
+export const routeMapping = {
+  [questions[0]]: "/TemporaryProtectiveStatus",
+  [questions[1]]: "/Asylum",
+  [questions[2]]: "/Petition",
+  [questions[3]]: "/FianceVisa",
+  [questions[4]]: "/ChangeOfStatus",
+  [questions[5]]: "/VisaCenter",
+  [questions[6]]: "/WorkPermit",
+  [questions[7]]: "/2YearGreenCardToPermanent",
+  [questions[8]]: "/Renew10YearGreenCard",
+  [questions[9]]: "/Citizenship",
+  [questions[10]]: "/BidenParole",
+  [questions[11]]: "/UVISA",
+  [questions[12]]: "/WidowVAWA",
+  [questions[13]]: "/TravelDocument",
+};
