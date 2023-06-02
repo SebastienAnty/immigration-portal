@@ -42,9 +42,11 @@ const LandingScreen = () => {
 
   return (
     <>
-      <h2 className="welcome-title">
-        Welcome back, <span className="user-name">{userFirstName}</span>!
-      </h2>
+      {userFirstName && (
+        <h2 className="welcome-title">
+          Welcome back, <span className="user-name">{userFirstName}</span>!
+        </h2>
+      )}
 
       <div className="landing-container">
         {questions.map((question, i) => (

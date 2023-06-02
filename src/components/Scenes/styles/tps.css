@@ -1,0 +1,58 @@
+.tps-wrapper {
+    display: flex;
+    justify-content: space-around;
+    
+  }
+  
+  .tps-container {
+    width: 400px; /* Adjust the width as needed */
+    margin: 0 10px;
+    padding: 40px;
+    text-align: center;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 350px; /* Adjust the height as needed */
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+  }
+  
+  .tps-line {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+  }
+
+
+  ol {
+    text-align: left;
+  }
+  
+  .tps-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: white;
+  }
+  
+  .tps-section {
+    margin-bottom: 40px;
+  }
+  
+  .tps-subtitle {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .tps-list {
+    list-style-type: decimal;
+    padding-left: 20px;
+  }
+  
+  .tps-list-item {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  

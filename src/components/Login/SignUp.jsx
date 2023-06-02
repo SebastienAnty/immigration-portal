@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import firebaseConfig from "../../firebaseConfig";
-import "./signup.css"; // Import the CSS file for styling
+import { auth, firestore } from "../../firebaseConfig";
+import "./signup.css";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -14,12 +14,17 @@ const SignUp = () => {
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
-      await firebaseConfig
-        .auth()
-        .createUserWithEmailAndPassword(email, password);
-      const user = firebaseConfig.auth().currentUser;
+      await auth.createUserWithEmailAndPassword(email, password);
+      const user = auth.currentUser;
+
       await user.updateProfile({
         displayName: `${firstName} ${lastName}`,
+      });
+
+      await firestore.collection("users").doc(user.uid).set({
+        firstName,
+        lastName,
+        email,
       });
       navigate("/login");
     } catch (error) {

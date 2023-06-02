@@ -6,7 +6,7 @@
   border-radius: 8px;
   padding: 20px;
   max-width: 600px;
-  margin: 0 auto;
+  margin: auto;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -15,7 +15,7 @@
   font-weight: bold;
   text-align: center;
   margin-bottom: 20px;
-  color: white;
+  color: #e6e6e6;
 }
 
 .user-name {

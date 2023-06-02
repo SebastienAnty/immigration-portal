@@ -1,14 +1,15 @@
 
 .navbar_container {
-    background-color: #007bff;
-    padding: 10px;
+    background-color: rgb(245, 245, 245);
+    border-bottom-color: rgba(0, 0, 0, 0.12);;
+    padding: 25px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
   
   .navbar_text {
-    color: #fff;
+    color: rgba(0, 0, 0, 0.87);
     font-size: 24px;
     font-weight: bold;
     margin: 0;
