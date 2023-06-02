@@ -36,6 +36,12 @@ const LandingScreen = () => {
       if (userDisplayName) {
         const firstName = userDisplayName.split(" ")[0];
         setUserFirstName(firstName);
+        localStorage.setItem("userFirstName", firstName);
+      }
+    } else {
+      const storedUserFirstName = localStorage.getItem("userFirstName");
+      if (storedUserFirstName) {
+        setUserFirstName(storedUserFirstName);
       }
     }
   }, []);
