@@ -14,6 +14,15 @@ const SignUp = () => {
   const handleSignUp = async (e) => {
     e.preventDefault();
     try {
+      const emailExists = await firestore
+        .collection("users")
+        .where("email", "==", email)
+        .get();
+
+      if (!emailExists.empty) {
+        setError("Email already in use. Please use a different email.");
+        return;
+      }
       await auth.createUserWithEmailAndPassword(email, password);
       const user = auth.currentUser;
 
