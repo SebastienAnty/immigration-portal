@@ -52,7 +52,7 @@ export const petitionParents = [
     ],
   },
   {
-    title: "Personal Checks or Money Orders $535 and $1225 (for USCIS)",
+    title: "Personal Check or Money Orders $535 and $1225 (for USCIS)",
   },
   {
     title:

@@ -1,7 +1,7 @@
 export const widowVawaDocs = [
   {
     title: "Information from the Deceased/Abuser",
-    item: [
+    items: [
       "Proof of US Citizenship or Permanent Residence",
       "Marriage Certificate",
       "Death Certificate",
@@ -9,7 +9,7 @@ export const widowVawaDocs = [
   },
   {
     title: "Proof of the Relationship",
-    item: [
+    items: [
       "Taxes filed jointly",
       "Government-issued ID showing you both lived at the same address",
       "Pictures of the both of you with family and friends",
@@ -22,7 +22,7 @@ export const widowVawaDocs = [
   },
   {
     title: "Beneficiary (extrait des archives ONLY)",
-    item: [
+    items: [
       "Birth Certificate",
       "8 Passport-Style Pictures",
       "Passport used to when coming into the country",

@@ -14,6 +14,18 @@ import Footer from "./components/common/Footer";
 import { auth } from "./firebaseConfig";
 import TPS from "./components/Scenes/TPS";
 import AsylumScene from "./components/Scenes/Asylum";
+import Petition from "./components/Scenes/Petition";
+import FianceVisa from "./components/Scenes/FianceVisa";
+import ChangeOfStatus from "./components/Scenes/ChangeOfStatus";
+import VisaCenter from "./components/Scenes/VisaCenter";
+import WorkPermit from "./components/Scenes/WorkPermit";
+import GreenCard from "./components/Scenes/GreenCard2Perm";
+import GreenCardRenewal from "./components/Scenes/GreenCardRenewal";
+import Citizenship from "./components/Scenes/Citizenship";
+import BidenParole from "./components/Scenes/BidenParole";
+import UVisa from "./components/Scenes/UVisa";
+import WidowVawa from "./components/Scenes/WidowVawa";
+import Travel from "./components/Scenes/Travel";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -50,8 +62,23 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           {isLoggedIn ? (
             <>
-              <Route path="/doc/asylum" element={<AsylumScene />} />
               <Route path="/doc/temporaryprotectivestatus" element={<TPS />} />
+              <Route path="/doc/asylum" element={<AsylumScene />} />
+              <Route path="/doc/petition" element={<Petition />} />
+              <Route path="/doc/fiancevisa" element={<FianceVisa />} />
+              <Route path="/doc/changeofstatus" element={<ChangeOfStatus />} />
+              <Route path="/doc/visacenter" element={<VisaCenter />} />
+              <Route path="/doc/workpermit" element={<WorkPermit />} />
+              <Route path="/doc/greencardtopermanent" element={<GreenCard />} />
+              <Route
+                path="/doc/renew10yeargreencard"
+                element={<GreenCardRenewal />}
+              />
+              <Route path="/doc/citizenship" element={<Citizenship />} />
+              <Route path="/doc/bidenparole" element={<BidenParole />} />
+              <Route path="/doc/uvisa" element={<UVisa />} />
+              <Route path="/doc/widowervawa" element={<WidowVawa />} />
+              <Route path="/doc/traveldocument" element={<Travel />} />
             </>
           ) : (
             <Route path="*" element={<Navigate to="/login" />} />

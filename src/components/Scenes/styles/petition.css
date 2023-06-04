@@ -1,0 +1,50 @@
+.petition-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  
+  .petition-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .section-container {
+    width: 450px; /* Adjust the width as needed */
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f2f2f2;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+  }
+  
+  .section-container h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+
+  .section-container ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  
+  .section-container li {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  
+  ol {
+    list-style-type: decimal;
+    margin-left: 20px;
+  }
+
+  .petition-line {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+  }

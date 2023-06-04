@@ -15,14 +15,14 @@ export const citizenshipDocs = [
   },
   {
     title: "If the applicant has children under 18",
-    item: [
+    items: [
       "Letter from mother of child",
       "IRS child support payments OR Financial Support",
     ],
   },
   {
     title: "If the applicant has been arrested within the last 5 years",
-    item: [
+    items: [
       "Arrest record (police station)",
       "Judge's disposition record (court system)",
     ],

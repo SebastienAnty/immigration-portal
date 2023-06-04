@@ -1,7 +1,7 @@
 export const petitionSpouse = [
   {
     title: "Petitioner",
-    item: [
+    items: [
       "Proof of US citizenship or Permanent Residence",
       "2 Passport-Styled Pictures",
       "Divorce AND/OR Death Certificate from each previous marriage",
@@ -12,7 +12,7 @@ export const petitionSpouse = [
   {
     title:
       "Beneficiary (ALL DOCUMENTS MUST BE SCANNED W/ ALL 4 CORNERS SHOWING)",
-    item: [
+    items: [
       "8 Passport-Styled Pictures",
       "Copy Passport",
       "Divorce OR Death Certificatefrom all previous marriages",

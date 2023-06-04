@@ -1,58 +1,59 @@
 .footer {
-    background-color: #f2f2f2;
-    padding: 20px 0;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-  }
-  
-  .footer-content {
-    max-width: 960px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-  }
+  background-color: #f2f2f2;
+  bottom: 0;
+  left: 0;
+  max-width: 100%;
+  margin-top: 20px;
+}
 
-  .footer-bottom {
-    margin-top: 20px;
-    text-align: center;
-    font-size: 14px;
-    opacity: 0.8;
-  }
-  
-  .company-section,
-  .legal-section {
-    flex: 1;
-  }
-  
-  h3 {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  ul li {
-    margin-bottom: 8px;
-  }
-  
-  ul li:last-child {
-    margin-bottom: 0;
-  }
-  
-  ul li a {
-    color: #333;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  
-  ul li a:hover {
-    color: #007bff;
-  }
-  
+.footer-content {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.company-section,
+.legal-section {
+  flex: 1;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+ul li {
+  margin-bottom: 8px;
+}
+
+ul li:last-child {
+  margin-bottom: 0;
+}
+
+ul li a {
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+ul li a:hover {
+  color: #007bff;
+}
+

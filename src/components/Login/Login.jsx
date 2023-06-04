@@ -6,7 +6,7 @@ import "./login.css";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [incorrectPassword, setIncorrectPassword] = useState(false);
   const navigation = useNavigate();
 
   useEffect(() => {
@@ -30,8 +30,11 @@ const Login = () => {
       await firebase.auth().signInWithEmailAndPassword(email, password);
       navigation("/");
     } catch (error) {
-      setError(error.message);
-      console.log(error);
+      if (error.code === "auth/wrong-password") {
+        setIncorrectPassword(true);
+      } else {
+        console.log(error);
+      }
     }
   };
 
@@ -40,36 +43,42 @@ const Login = () => {
     try {
       await firebase.auth().signInWithPopup(provider);
     } catch (error) {
-      setError(error.message);
       console.log(error);
     }
   };
 
   return (
-    <div className="login-container">
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <button type="submit">Login</button>
-      </form>
-      <button className="google-login-button" onClick={handleGoogleLogin}>
-        Login with Google
-      </button>
-      {error && <p className="error-message">{error}</p>}
-      <p>
-        Don't have an account yet? <Link to="/signup">Sign Up</Link>
-      </p>
+    <div className="login-page">
+      <div className="login-container">
+        <h2>Login</h2>
+        <form onSubmit={handleLogin}>
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className={incorrectPassword ? "incorrect-password" : ""}
+          />
+          {incorrectPassword && (
+            <p className="error-message">
+              Incorrect password. Please try again.
+            </p>
+          )}
+          <button type="submit">Login</button>
+        </form>
+        <button className="google-login-button" onClick={handleGoogleLogin}>
+          Login with Google
+        </button>
+        <p>
+          Don't have an account yet? <Link to="/signup">Sign Up</Link>
+        </p>
+      </div>
     </div>
   );
 };

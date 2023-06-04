@@ -11,7 +11,7 @@ export const greenCardRenewal = [
   },
   {
     title: "Proof of Marriage (for the last two years)",
-    item: [
+    items: [
       "Taxes you filed jointly",
       "Government-Issued ID which has you both living at the same address",
       "Pictures of both of you with friends and family",

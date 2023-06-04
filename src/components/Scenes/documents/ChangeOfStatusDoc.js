@@ -1,7 +1,7 @@
 export const spouseCitizen = [
   {
     title: "Petitioner",
-    item: [
+    items: [
       "Proof of US citizenship",
       "I-94 Arrival/Departure Document OR Entry Document OR Passport",
       "Last 3 Income Taxes w/ W-2s",
@@ -11,7 +11,7 @@ export const spouseCitizen = [
   },
   {
     title: "Beneficiary (extrait des archives ONLY)",
-    item: [
+    items: [
       "Birth Certificate",
       "6 Passport-Style Pictures",
       "Police background check from each county where they lived in the US",
@@ -29,7 +29,7 @@ export const spouseCitizen = [
 export const childCitizen = [
   {
     title: "Petitioner",
-    item: [
+    items: [
       "Proof of US citizenship or Permanent Residence",
       "I-94 Arrival/Departure Document OR Entry Document OR Passport",
       "Last 3 Income Taxes w/ W-2s",
@@ -39,7 +39,7 @@ export const childCitizen = [
   },
   {
     title: "Beneficiary (extrait des archives ONLY)",
-    item: [
+    items: [
       "Birth Certificate",
       "6 Passport-Style Pictures",
       "Police background check from each county where they lived in the US",
