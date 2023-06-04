@@ -7,9 +7,9 @@ import {
   Navigate,
 } from "react-router-dom";
 import LandingScreen from "./components/Landing/LandingScreen";
+import Navbar from "./components/common/Navbar";
 import Login from "./components/Login/Login";
 import SignUp from "./components/Login/SignUp";
-import Navbar from "./components/common/Navbar";
 import Footer from "./components/common/Footer";
 import { auth } from "./firebaseConfig";
 import TPS from "./components/Scenes/TPS";
@@ -55,7 +55,11 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Navbar isLoggedIn={isLoggedIn} handleSignOut={handleSignOut} />
+        <Navbar
+          handleSignOut={handleSignOut}
+          isLoggedIn={isLoggedIn}
+          displayName={auth.currentUser?.displayName}
+        />
         <Routes>
           <Route path="/" element={<LandingScreen />} />
           <Route path="/login" element={<Login />} />

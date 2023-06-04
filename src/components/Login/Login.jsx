@@ -26,6 +26,24 @@ const Login = () => {
     };
   }, [navigation]);
 
+  const mergeAccounts = async (currentUser, newProviderCredential) => {
+    try {
+      // Link the new provider credential to the current user
+      await currentUser.linkWithCredential(newProviderCredential);
+
+      // After the accounts are successfully linked, you can retrieve the merged user
+      const mergedUser = await auth.currentUser;
+
+      // Return the merged user if needed
+      return mergedUser;
+    } catch (error) {
+      // Handle the error if the accounts cannot be merged
+      console.error("Account merge error:", error);
+      // Return null or throw an error to indicate the merge failure
+      return null;
+    }
+  };
+
   const handleLogin = async (e) => {
     e.preventDefault();
 
@@ -58,7 +76,45 @@ const Login = () => {
   const handleGoogleLogin = async () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     try {
-      await firebase.auth().signInWithPopup(provider);
+      const result = await firebase.auth().signInWithPopup(provider);
+      const { user, additionalUserInfo } = result;
+
+      const emailExists = await firebase
+        .auth()
+        .fetchSignInMethodsForEmail(user.email);
+
+      if (emailExists.length > 0) {
+        const currentUserId = firebase.auth().currentUser.uid;
+        const currentUser = firebase.auth().currentUser;
+
+        if (currentUserId !== user.uid) {
+          await mergeAccounts(currentUser, result.credential);
+
+          navigation("/");
+        } else {
+          console.log("Google account is already linked to this email.");
+        }
+
+        return;
+      }
+
+      if (additionalUserInfo.isNewUser) {
+        const displayName = user.displayName;
+        const [firstName, lastName] = displayName.split(" ");
+
+        // Update the user's profile with first name and last name
+        await user.updateProfile({
+          displayName: user.displayName,
+        });
+
+        await firebase.firestore().collection("users").doc(user.uid).set({
+          firstName: firstName,
+          lastName: lastName,
+          email: user.email,
+        });
+      }
+
+      navigation("/");
     } catch (error) {
       console.log(error);
     }
