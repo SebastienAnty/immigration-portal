@@ -12,7 +12,6 @@ const BidenParole = () => {
           {bidenParoleDocs.map((section, index) => (
             <React.Fragment key={index}>
               <h2>{`${index + 1}. ${section.title}`}</h2>
-              {console.log(section.title)}
               {section.items && (
                 <ol>
                   {section.items.map((item, itemIndex) => (

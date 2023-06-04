@@ -7,6 +7,8 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [incorrectPassword, setIncorrectPassword] = useState(false);
+  const [emailError, setEmailError] = useState(false);
+  const [passwordError, setPasswordError] = useState(false);
   const navigation = useNavigate();
 
   useEffect(() => {
@@ -26,6 +28,21 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+
+    // Reset validation errors
+    setEmailError(false);
+    setPasswordError(false);
+
+    // Validate email and password
+    if (!email) {
+      setEmailError(true);
+      return;
+    }
+    if (!password) {
+      setPasswordError(true);
+      return;
+    }
+
     try {
       await firebase.auth().signInWithEmailAndPassword(email, password);
       navigation("/");
@@ -57,14 +74,22 @@ const Login = () => {
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
+          {emailError && (
+            <p className="error-message">Please enter your email</p>
+          )}
           <input
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
             className={incorrectPassword ? "incorrect-password" : ""}
           />
+          {passwordError && (
+            <p className="error-message">Please enter your password</p>
+          )}
           {incorrectPassword && (
             <p className="error-message">
               Incorrect password. Please try again.
@@ -79,6 +104,7 @@ const Login = () => {
           Don't have an account yet? <Link to="/signup">Sign Up</Link>
         </p>
       </div>
+      <footer className="footer">{/* Footer content */}</footer>
     </div>
   );
 };

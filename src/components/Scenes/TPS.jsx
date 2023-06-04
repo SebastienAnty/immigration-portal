@@ -5,7 +5,6 @@ import "./styles/tps.css";
 const TPS = () => {
   return (
     <>
-      {/* <h1 className="tps-title">Temporary Protective Status</h1> */}
       <div className="tps-wrapper">
         <div className="tps-container">
           <div className="tps-section">
