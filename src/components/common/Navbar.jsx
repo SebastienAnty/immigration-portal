@@ -53,7 +53,7 @@ const Navbar = ({ isLoggedIn, handleSignOut, displayName }) => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ bgcolor: "#424242" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
