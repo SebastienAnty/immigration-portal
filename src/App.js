@@ -90,7 +90,9 @@ function App() {
             <Route path="*" element={<Navigate to="/login" />} />
           )}
         </Routes>
-        <Footer />
+        <div className="footer">
+          <Footer />
+        </div>
       </Router>
     </div>
   );

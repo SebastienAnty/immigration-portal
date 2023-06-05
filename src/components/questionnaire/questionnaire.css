@@ -1,5 +1,6 @@
 .questionnaire {
     max-width: 500px;
+    height: 500px;
     margin: 0 auto;
     padding: 20px;
     text-align: center;
@@ -7,7 +8,7 @@
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin-top: 50px;
-    margin-bottom: 150px;
+    margin-bottom: 50px;
   }
   
   .heading {
