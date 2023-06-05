@@ -26,6 +26,7 @@ import BidenParole from "./components/Scenes/BidenParole";
 import UVisa from "./components/Scenes/UVisa";
 import WidowVawa from "./components/Scenes/WidowVawa";
 import Travel from "./components/Scenes/Travel";
+import Questionnaire from "./components/questionnaire/Questionnaire";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -83,6 +84,7 @@ function App() {
               <Route path="/doc/uvisa" element={<UVisa />} />
               <Route path="/doc/widowervawa" element={<WidowVawa />} />
               <Route path="/doc/traveldocument" element={<Travel />} />
+              <Route path="/question" element={<Questionnaire />} />
             </>
           ) : (
             <Route path="*" element={<Navigate to="/login" />} />

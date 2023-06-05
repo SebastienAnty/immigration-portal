@@ -27,6 +27,11 @@ const Navbar = ({ isLoggedIn, handleSignOut, displayName }) => {
     setAnchorElUser(event.currentTarget);
   };
 
+  const handleQuestion = () => {
+    navigation("/question");
+    handleCloseNavMenu();
+  };
+
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
@@ -37,6 +42,7 @@ const Navbar = ({ isLoggedIn, handleSignOut, displayName }) => {
 
   const handleLogin = () => {
     navigation("/login");
+    handleCloseNavMenu();
   };
 
   const handleSignOutClick = () => {
@@ -106,7 +112,7 @@ const Navbar = ({ isLoggedIn, handleSignOut, displayName }) => {
                 display: { xs: "block", md: "none" },
               }}
             >
-              <MenuItem onClick={handleCloseNavMenu}>
+              <MenuItem onClick={handleQuestion}>
                 <Typography textAlign="center">Questionnaire</Typography>
               </MenuItem>
             </Menu>
@@ -115,7 +121,7 @@ const Navbar = ({ isLoggedIn, handleSignOut, displayName }) => {
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {isLoggedIn && (
               <Button
-                onClick={handleCloseNavMenu}
+                onClick={() => handleQuestion()}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
                 Questionnaire
