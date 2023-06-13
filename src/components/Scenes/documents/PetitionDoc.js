@@ -25,7 +25,7 @@ export const petitionSpouses = [
   },
   {
     title:
-      "GITMO Service Fee: $1200 includes the Work Permit and Travel Document",
+      "GITMO Service Fee: $1100 includes the Work Permit and Travel Document",
   },
 ];
 

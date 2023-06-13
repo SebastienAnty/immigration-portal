@@ -1,3 +1,10 @@
+export const changeOfStatus = [
+  "(I-485, Application to Register Permanent Residence or Adjust Status)",
+  "(I-864, Affidavit of Support Under Section 213A of the INA)",
+  "(I-765, Application for Employment Authorization)",
+  "(I-131, Application for Travel Document)",
+];
+
 export const spouseCitizen = [
   {
     title: "Petitioner",
@@ -50,6 +57,6 @@ export const childCitizen = [
     title: "Personal Check or Money Order for $1245 (for USCIS)",
   },
   {
-    title: "GITMO Service Fee: $500",
+    title: "GITMO Service Fee: $600",
   },
 ];

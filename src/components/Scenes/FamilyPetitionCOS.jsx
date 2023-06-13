@@ -2,7 +2,7 @@ import React from "react";
 import { petitionSpouses, petitionParents } from "./documents/PetitionDoc";
 import "./styles/petition.css";
 
-const Petition = () => {
+const FamilyPetition = () => {
   return (
     <>
       <div className="petition-container">
@@ -45,4 +45,4 @@ const Petition = () => {
   );
 };
 
-export default Petition;
+export default FamilyPetition;

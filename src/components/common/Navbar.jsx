@@ -27,8 +27,13 @@ const Navbar = ({ isLoggedIn, handleSignOut, displayName }) => {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleQuestion = () => {
-    navigation("/question");
+  const handleQuestionnaire = () => {
+    navigation("/questionnaire");
+    handleCloseNavMenu();
+  };
+
+  const handleFamilyQuestionnaire = () => {
+    navigation("/family-petition-questionnaire");
     handleCloseNavMenu();
   };
 
@@ -112,20 +117,33 @@ const Navbar = ({ isLoggedIn, handleSignOut, displayName }) => {
                 display: { xs: "block", md: "none" },
               }}
             >
-              <MenuItem onClick={handleQuestion}>
+              <MenuItem onClick={handleQuestionnaire}>
                 <Typography textAlign="center">Questionnaire</Typography>
+              </MenuItem>
+              <MenuItem onClick={handleFamilyQuestionnaire}>
+                <Typography textAlign="center">
+                  Family Petition Questionnaire
+                </Typography>
               </MenuItem>
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {isLoggedIn && (
-              <Button
-                onClick={() => handleQuestion()}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                Questionnaire
-              </Button>
+              <>
+                <Button
+                  onClick={() => handleQuestionnaire()}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  Questionnaire
+                </Button>
+                <Button
+                  onClick={() => handleFamilyQuestionnaire()}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  Family Petition Questionnaire
+                </Button>
+              </>
             )}
           </Box>
           <Typography

@@ -14,7 +14,7 @@ import Footer from "./components/common/Footer";
 import { auth } from "./firebaseConfig";
 import TPS from "./components/Scenes/TPS";
 import AsylumScene from "./components/Scenes/Asylum";
-import Petition from "./components/Scenes/Petition";
+import FamilyPetition from "./components/Scenes/FamilyPetitionCOS";
 import FianceVisa from "./components/Scenes/FianceVisa";
 import ChangeOfStatus from "./components/Scenes/ChangeOfStatus";
 import VisaCenter from "./components/Scenes/VisaCenter";
@@ -26,7 +26,9 @@ import BidenParole from "./components/Scenes/BidenParole";
 import UVisa from "./components/Scenes/UVisa";
 import WidowVawa from "./components/Scenes/WidowVawa";
 import Travel from "./components/Scenes/Travel";
-import Questionnaire from "./components/questionnaire/Questionnaire";
+import Questionnaire from "./components/Questionnaires/portal/Questionnaire";
+import FamilyPetitionNoCOS from "./components/Scenes/FamilyPetitionNoCOS";
+import FamilyPetitionQuestionnaire from "./components/Questionnaires/familyPetition/FamilyPetitionQuestionnaire";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -69,7 +71,14 @@ function App() {
             <>
               <Route path="/doc/temporaryprotectivestatus" element={<TPS />} />
               <Route path="/doc/asylum" element={<AsylumScene />} />
-              <Route path="/doc/petition" element={<Petition />} />
+              <Route
+                path="/doc/family-petition-with-cos"
+                element={<FamilyPetition />}
+              />
+              <Route
+                path="/doc/family-petition-without-cos"
+                element={<FamilyPetitionNoCOS />}
+              />
               <Route path="/doc/fiancevisa" element={<FianceVisa />} />
               <Route path="/doc/changeofstatus" element={<ChangeOfStatus />} />
               <Route path="/doc/visacenter" element={<VisaCenter />} />
@@ -84,7 +93,11 @@ function App() {
               <Route path="/doc/uvisa" element={<UVisa />} />
               <Route path="/doc/widowervawa" element={<WidowVawa />} />
               <Route path="/doc/traveldocument" element={<Travel />} />
-              <Route path="/question" element={<Questionnaire />} />
+              <Route path="/questionnaire" element={<Questionnaire />} />
+              <Route
+                path="/family-petition-questionnaire"
+                element={<FamilyPetitionQuestionnaire />}
+              />
             </>
           ) : (
             <Route path="*" element={<Navigate to="/login" />} />

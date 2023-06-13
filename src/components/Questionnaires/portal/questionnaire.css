@@ -10,6 +10,14 @@
     margin-top: 50px;
     margin-bottom: 50px;
   }
+
+  .questionnaire-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
   
   .heading {
     font-size: 24px;
@@ -18,7 +26,8 @@
   }
   
   .question {
-    font-size: 18px;
+    font-size: 28px;
+    font-weight: bold;
     margin-bottom: 10px;
   }
   
@@ -29,7 +38,7 @@
   }
   
   .option {
-    width: 200px;
+    width: 250px;
     margin-bottom: 10px;
     padding: 10px;
     font-size: 16px;
@@ -53,3 +62,17 @@
     border-radius: 5px;
   }
   
+  .back-button {
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 100px;
+  }
+  
+  
+  .back-button:hover {
+    background-color: #0056b3;
+  }
