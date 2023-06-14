@@ -37,6 +37,6 @@ export const petitionSpouse = [
       "Available Funds in a Bank Account: $325 for a Bank Account for each person receiving support (for State Department)",
   },
   {
-    title: "GITMO Service Fee: $200 for each person on the application",
+    title: "GITMO Service Fee: $600 + $300 for each person on the application",
   },
 ];

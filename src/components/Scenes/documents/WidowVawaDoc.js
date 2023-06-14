@@ -35,7 +35,6 @@ export const widowVawaDocs = [
     title: "Personal Check or Money Order $535 and $1225 for (USCIS)",
   },
   {
-    title:
-      "GITMO Service Fee $1200 includes the Work Permit and Travel Document",
+    title: "GITMO Service Fee: $500",
   },
 ];

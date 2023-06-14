@@ -31,6 +31,6 @@ export const citizenshipDocs = [
     title: "Personal Check or Money Order for $640 + $85 (for USCIS)",
   },
   {
-    title: "GITMO Service Fee: $",
+    title: "GITMO Service Fee: $300",
   },
 ];

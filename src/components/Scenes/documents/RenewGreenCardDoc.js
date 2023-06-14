@@ -26,6 +26,6 @@ export const greenCardRenewal = [
     title: "Personal Check or Money Order for $455 (for USCIS)",
   },
   {
-    title: "GITMO Service Fee: $ ",
+    title: "GITMO Service Fee: $300 ",
   },
 ];

@@ -1,4 +1,4 @@
-export const familyPetition = [
+export const familyPetitionSpouse = [
   {
     title: "Petitioner",
     items: [

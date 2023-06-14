@@ -23,6 +23,6 @@ export const fianceVisa = [
     title: "Personal Check or Money Order for $535 (for USCIS)",
   },
   {
-    title: "GITMO Service Fee: $500 + $100 for each child included",
+    title: "GITMO Service Fee: $600 + $150 for each child included",
   },
 ];
