@@ -77,7 +77,7 @@ const Citizenship = () => {
                 marginBottom: 50,
               }}
             >
-              (N-400, Application for Naturalization)
+              - (N-400, Application for Naturalization)
             </li>
           </ol>
           {["Open List"].map((anchor) => (

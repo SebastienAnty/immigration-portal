@@ -76,7 +76,7 @@ const GreenCard = () => {
               marginBottom: 50,
             }}
           >
-            (I-751, Petition to Remove Conditions on Residence)
+            - (I-751, Petition to Remove Conditions on Residence)
           </li>
         </ol>
         {["Open List"].map((anchor) => (

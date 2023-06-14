@@ -53,7 +53,7 @@ const WorkPermit = () => {
             marginBottom: 50,
           }}
         >
-          (I-765, Application for Employment Authorization)
+          - (I-765, Application for Employment Authorization)
         </li>
       </ol>
       {["Open List"].map((anchor) => (

@@ -124,7 +124,7 @@ const ChangeOfStatus = () => {
                   marginBottom: 50,
                 }}
               >
-                (I-751, Petition to Remove Conditions on Residence)
+                - (I-751, Petition to Remove Conditions on Residence)
               </li>
             </ol>
             {["left"].map((anchor) => (
@@ -156,7 +156,7 @@ const ChangeOfStatus = () => {
                   marginBottom: 50,
                 }}
               >
-                (I-751, Petition to Remove Conditions on Residence)
+                - (I-751, Petition to Remove Conditions on Residence)
               </li>
             </ol>
             {["right"].map((anchor) => (

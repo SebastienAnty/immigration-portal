@@ -76,7 +76,7 @@ const GreenCardRenewal = () => {
                 marginBottom: 50,
               }}
             >
-              (I-90, Application to Replace Permanent Resident Card (Green
+              - (I-90, Application to Replace Permanent Resident Card (Green
               Card))
             </li>
           </ol>

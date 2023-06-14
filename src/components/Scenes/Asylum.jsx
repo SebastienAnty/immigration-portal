@@ -55,7 +55,7 @@ const AsylumScene = () => {
               marginBottom: 50,
             }}
           >
-            (I-589, Application for Asylum and for Withholding of Removal)
+            - (I-589, Application for Asylum and for Withholding of Removal)
           </li>
         </ol>
         {["Open List"].map((anchor) => (

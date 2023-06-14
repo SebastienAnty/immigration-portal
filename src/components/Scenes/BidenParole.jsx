@@ -76,7 +76,7 @@ const BidenParole = () => {
               marginBottom: 50,
             }}
           >
-            (I-134A, Online Request to be a Supporter and Declaration of
+            - (I-134A, Online Request to be a Supporter and Declaration of
             Financial Support)
           </li>
         </ol>

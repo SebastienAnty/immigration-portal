@@ -1,39 +1,35 @@
 import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { questions, routeMapping } from "./questions";
-import { useNavigate } from "react-router-dom";
 import firebase from "../../firebaseConfig";
 import "./landingscreen.css";
-import { Button } from "@mui/material";
+import { Button, Modal, Box } from "@mui/material";
 
 const LandingScreen = () => {
   const [selectedQuestion, setSelectedQuestion] = useState("");
-  const [nextButtonEnabled, setNextButtonEnabled] = useState(false);
   const [userFirstName, setUserFirstName] = useState("");
+  const [displayStatusChangeModal, setDisplayStatusChangeModal] =
+    useState(false);
   const [displayStatusChangeButtons, setDisplayStatusChangeButtons] =
     useState(false);
   const navigation = useNavigate();
 
-  const handleCheckboxChange = (question) => {
-    if (selectedQuestion === question) {
-      setSelectedQuestion("");
-      setNextButtonEnabled(false);
+  const handleQuestionClick = (question) => {
+    setSelectedQuestion(question);
+    if (question === "Family Petition") {
+      setDisplayStatusChangeModal(true);
     } else {
-      setSelectedQuestion(question);
-      setNextButtonEnabled(true);
+      const route = routeMapping[question];
+      if (route) {
+        navigation(route);
+      }
     }
   };
 
-  const handleNextButtonClick = () => {
-    if (selectedQuestion !== "") {
-      if (selectedQuestion === "Family Petition") {
-        // Display buttons for status change options
-        setDisplayStatusChangeButtons(true);
-      } else {
-        const route = routeMapping[selectedQuestion];
-        if (route) {
-          navigation(route);
-        }
-      }
+  const handleStatusChangeOptionClick = (route) => {
+    setDisplayStatusChangeModal(false);
+    if (route) {
+      navigation(route);
     }
   };
 
@@ -62,68 +58,62 @@ const LandingScreen = () => {
         </h2>
       )}
 
-      {displayStatusChangeButtons ? (
-        <>
-          <div className="status-change-container">
-            <div
-              style={{
-                height: 300,
-                width: 800,
-                backgroundColor: "white",
-                display: "flex",
-                justifyContent: "space-evenly",
-                alignItems: "center",
-                flexDirection: "column",
-                borderRadius: 8,
-                marginTop: 50,
-                marginBottom: 85,
-                padding: 20,
-              }}
+      {displayStatusChangeModal && (
+        <Modal
+          open={displayStatusChangeModal}
+          onClose={() => setDisplayStatusChangeModal(false)}
+        >
+          <Box
+            sx={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              width: 400,
+              bgcolor: "background.paper",
+              border: "2px solid #000",
+              boxShadow: 24,
+              p: 4,
+            }}
+          >
+            <h2 id="modal-title">Family Petition Options</h2>
+            <Button
+              variant="contained"
+              onClick={() =>
+                handleStatusChangeOptionClick("/doc/family-petition-with-cos")
+              }
+              sx={{ mr: 2 }}
             >
-              <div className="status-change-title">Family Petition</div>
-              <Button
-                variant="contained"
-                onClick={() => navigation("/doc/family-petition-with-cos")}
-              >
-                With Status Change
-              </Button>
-              <Button
-                variant="contained"
-                onClick={() => navigation("/doc/family-petition-without-cos")}
-              >
-                No Status Change
-              </Button>
-            </div>
-          </div>
-        </>
-      ) : (
-        <div className="landing-container">
-          {questions.map((question, i) => (
-            <div
-              key={i}
-              className="question-container"
-              onClick={() => handleCheckboxChange(question)}
+              With Status Change
+            </Button>
+            <Button
+              variant="contained"
+              onClick={() =>
+                handleStatusChangeOptionClick(
+                  "/doc/family-petition-without-cos"
+                )
+              }
             >
-              <input
-                type="checkbox"
-                checked={selectedQuestion === question}
-                onChange={() => handleCheckboxChange(question)}
-              />
-              <h1>{question}</h1>
-            </div>
-          ))}
-        </div>
+              No Status Change
+            </Button>
+          </Box>
+        </Modal>
       )}
 
-      {!displayStatusChangeButtons && (
-        <button
-          className={`next-button ${nextButtonEnabled ? "enabled" : ""}`}
-          onClick={handleNextButtonClick}
-          disabled={!nextButtonEnabled}
-        >
-          Next
-        </button>
-      )}
+      <div className="landing-container">
+        {questions.map((question, i) => (
+          <Link
+            key={i}
+            to={routeMapping[question]}
+            className={`question-container ${
+              selectedQuestion === question ? "selected" : ""
+            }`}
+            onClick={() => handleQuestionClick(question)}
+          >
+            <h1>{question}</h1>
+          </Link>
+        ))}
+      </div>
     </>
   );
 };

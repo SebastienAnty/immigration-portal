@@ -75,7 +75,7 @@ const WidowVawa = () => {
                 marginBottom: 50,
               }}
             >
-              (I-360, Petition for Ameriasian, Widow(er) or Special Immigrant)
+              - (I-360, Petition for Ameriasian, Widow(er) or Special Immigrant)
             </li>
           </ol>
           {["Open List"].map((anchor) => (

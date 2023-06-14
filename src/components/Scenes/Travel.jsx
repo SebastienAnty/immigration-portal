@@ -52,7 +52,7 @@ const Travel = () => {
             marginBottom: 50,
           }}
         >
-          (I-131, Application for Travel Document)
+          - (I-131, Application for Travel Document)
         </li>
       </ol>
       {["Open List"].map((anchor) => (
