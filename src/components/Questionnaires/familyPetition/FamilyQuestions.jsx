@@ -7,15 +7,16 @@ const FamilyQuestions = ({ question, handleAnswer, goToPrevQuestion }) => {
         <h2 className="question">{question.text}</h2>
       </div>
       <div className="options">
-        {question.options.map((option, index) => (
-          <button
-            key={index}
-            className="option"
-            onClick={() => handleAnswer(option.nextQuestion, option.text)}
-          >
-            {option.text}
-          </button>
-        ))}
+        {question.options &&
+          question.options.map((option, index) => (
+            <button
+              key={index}
+              className="option"
+              onClick={() => handleAnswer(option.nextQuestion, option.text)}
+            >
+              {option.text}
+            </button>
+          ))}
       </div>
       {goToPrevQuestion && (
         <button className="back-button" onClick={goToPrevQuestion}>

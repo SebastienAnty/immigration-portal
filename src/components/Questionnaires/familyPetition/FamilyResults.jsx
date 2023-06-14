@@ -13,11 +13,14 @@ const FamilyResults = ({ result, answers }) => {
   );
 
   return (
-    <div className="questionnaire">
+    <div>
       {previousAnswers}
-      <h2 className="final-result">
-        Your final result: <strong>{result}</strong>
-      </h2>
+      <h2 className="final-result">Your final result:</h2>
+      {result.map((item, index) => (
+        <div key={index} className="result-list">
+          <li>{item}</li>
+        </div>
+      ))}
     </div>
   );
 };

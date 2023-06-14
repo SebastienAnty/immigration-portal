@@ -21,6 +21,7 @@ const LandingScreen = () => {
     } else {
       const route = routeMapping[question];
       if (route) {
+        setDisplayStatusChangeModal(false);
         navigation(route);
       }
     }

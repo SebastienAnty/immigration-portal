@@ -27,17 +27,19 @@ const FamilyPetitionQuestionnaire = () => {
 
   const goToPrevQuestion = () => {
     if (prevQuestion !== null) {
+      const newPrevQuestion = prevQuestion - 1 >= 0 ? prevQuestion - 1 : null;
       setAnswers(answers.slice(0, -1));
       setCurrentQuestion(prevQuestion);
-      setPrevQuestion(null);
+      setPrevQuestion(newPrevQuestion);
     }
   };
 
+  const currentQuestionData = familyQuestions[currentQuestion];
+
   const renderQuestion = () => {
-    const question = familyQuestions[currentQuestion];
     return (
       <FamilyQuestions
-        question={question}
+        question={currentQuestionData}
         handleAnswer={handleAnswer}
         goToPrevQuestion={currentQuestion > 0 ? goToPrevQuestion : null}
       />
@@ -45,15 +47,26 @@ const FamilyPetitionQuestionnaire = () => {
   };
 
   const renderResult = () => {
-    const result = result[currentQuestion - 1];
-    return <FamilyResults result={result} answers={answers} />;
+    if (currentQuestionData && currentQuestionData.result !== undefined) {
+      return (
+        <FamilyResults result={currentQuestionData.result} answers={answers} />
+      );
+    } else {
+      return null;
+    }
   };
 
   return (
     <div className="questionnaire">
-      {currentQuestion < familyQuestions.length
-        ? renderQuestion()
-        : renderResult()}
+      {currentQuestionData.result !== undefined ? (
+        <FamilyResults result={currentQuestionData.result} answers={answers} />
+      ) : (
+        <FamilyQuestions
+          question={currentQuestionData}
+          handleAnswer={handleAnswer}
+          goToPrevQuestion={currentQuestion > 0 ? goToPrevQuestion : undefined}
+        />
+      )}
     </div>
   );
 };

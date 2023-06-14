@@ -29,6 +29,7 @@ import Travel from "./components/Scenes/Travel";
 import Questionnaire from "./components/Questionnaires/portal/Questionnaire";
 import FamilyPetitionNoCOS from "./components/Scenes/FamilyPetitionNoCOS";
 import FamilyPetitionQuestionnaire from "./components/Questionnaires/familyPetition/FamilyPetitionQuestionnaire";
+import ComingSoon from "./components/common/ComingSoon";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -65,6 +66,7 @@ function App() {
         />
         <Routes>
           <Route path="/" element={<LandingScreen />} />
+          <Route path="/comingsoon" element={<ComingSoon />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           {isLoggedIn ? (

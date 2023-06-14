@@ -28,31 +28,26 @@ const Questionnaire = () => {
 
   const goToPrevQuestion = () => {
     if (prevQuestion !== null) {
+      const newPrevQuestion = prevQuestion - 1 >= 0 ? prevQuestion - 1 : null;
       setAnswers(answers.slice(0, -1));
       setCurrentQuestion(prevQuestion);
-      setPrevQuestion(null);
+      setPrevQuestion(newPrevQuestion);
     }
   };
 
-  const renderQuestion = () => {
-    const question = questions[currentQuestion];
-    return (
-      <Question
-        question={question}
-        handleAnswer={handleAnswer}
-        goToPrevQuestion={currentQuestion > 0 ? goToPrevQuestion : null}
-      />
-    );
-  };
-
-  const renderResult = () => {
-    const result = result[currentQuestion - 1];
-    return <Result result={result} answers={answers} />;
-  };
+  const currentQuestionData = questions[currentQuestion];
 
   return (
     <div className="questionnaire">
-      {currentQuestion < questions.length ? renderQuestion() : renderResult()}
+      {currentQuestionData.result !== undefined ? (
+        <Result result={currentQuestionData.result} answers={answers} />
+      ) : (
+        <Question
+          question={currentQuestionData}
+          handleAnswer={handleAnswer}
+          goToPrevQuestion={currentQuestion > 0 ? goToPrevQuestion : undefined}
+        />
+      )}
     </div>
   );
 };

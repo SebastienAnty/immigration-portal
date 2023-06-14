@@ -1,5 +1,5 @@
 .questionnaire {
-    max-width: 500px;
+    width: 600px;
     height: 500px;
     margin: 0 auto;
     padding: 20px;
@@ -9,6 +9,12 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin-top: 50px;
     margin-bottom: 50px;
+  }
+
+
+  .final-results {
+    display: flex;
+    justify-content: center;
   }
 
   .questionnaire-container {
@@ -76,3 +82,40 @@
   .back-button:hover {
     background-color: #0056b3;
   }
+
+  .family-results {
+    margin-top: 20px;
+  }
+  
+  .final-result {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .result-list {
+    margin-top: 10px; /* Add some top margin for spacing */
+  }
+  
+  .result-list li {
+    margin-bottom: 5px;
+    display: flex;
+  }
+  
+  .result {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  .previous-answers {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  
+  .previous-answers li {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
