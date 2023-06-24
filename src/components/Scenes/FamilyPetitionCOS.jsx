@@ -10,18 +10,19 @@ import { petitionSpouses, petitionParents } from "./documents/PetitionDoc";
 import "./styles/petition.css";
 
 const FamilyPetition = () => {
-  const spouseArray = [
-    "(I-130, Petition for Alien Relative)",
-    "(I-130A, Supplemental Information for a Spouse Beneficiary)",
-    "(I-485, Application to Register Permanent Residence or Adjust Status)",
-    "(I-864, Affidavit of Support Under Section 213A of the INA)",
-    "(I-765, Application for Employment Authorization)",
-    "(I-131, Application for Travel Document)",
-  ];
   const [state, setState] = useState({
     left: false,
     right: false,
   });
+
+  const familyPetitionArray = [
+    "I-130, Petition for Alien Relative",
+    "I-130A, Supplemental Information for a Spouse Beneficiary",
+    "I-485, Application to Register Permanent Residence or Adjust Status",
+    "I-864, Affidavit of Support Under Section 213A of the INA",
+    "I-765, Application for Employment Authorization",
+    "I-131, Application for Travel Document",
+  ];
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (
@@ -45,31 +46,16 @@ const FamilyPetition = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {petitionSpouses.map((section, index) => (
+        <ListItem>
+          <ListItemText secondary="Petition for Spouses in US" />
+        </ListItem>
+        {familyPetitionArray.map((item, index) => (
           <React.Fragment key={index}>
             <ListItem disablePadding>
               <ListItemButton>
-                <ListItemText primary={`${index + 1} - ${section.title}`} />
+                <ListItemText primary={`${index + 1} - ${item}`} />
               </ListItemButton>
             </ListItem>
-            {section.items && (
-              <List sx={{ paddingLeft: "20px" }}>
-                <ListItem disablePadding>
-                  <ListItemText
-                    primary={section.itemsTitle}
-                    primaryTypographyProps={{ variant: "subtitle2" }}
-                  />
-                </ListItem>
-                {section.items.map((item, itemIndex) => (
-                  <ListItem key={itemIndex} disablePadding>
-                    <ListItemText
-                      primary={`- ${item}`}
-                      primaryTypographyProps={{ variant: "body2" }}
-                    />
-                  </ListItem>
-                ))}
-              </List>
-            )}
           </React.Fragment>
         ))}
       </List>
@@ -84,25 +70,16 @@ const FamilyPetition = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {petitionParents.map((section, index) => (
+        <ListItem>
+          <ListItemText secondary="Petition for Parents or Child in US" />
+        </ListItem>
+        {familyPetitionArray.map((item, index) => (
           <React.Fragment key={index}>
             <ListItem disablePadding>
               <ListItemButton>
-                <ListItemText primary={`${index + 1} - ${section.title}`} />
+                <ListItemText primary={`${index + 1} - ${item}`} />
               </ListItemButton>
             </ListItem>
-            {section.items && (
-              <List sx={{ paddingLeft: "20px" }}>
-                {section.items.map((item, itemIndex) => (
-                  <ListItem key={itemIndex} disablePadding>
-                    <ListItemText
-                      primary={`- ${item}`}
-                      primaryTypographyProps={{ variant: "body2" }}
-                    />
-                  </ListItem>
-                ))}
-              </List>
-            )}
           </React.Fragment>
         ))}
       </List>
@@ -127,10 +104,17 @@ const FamilyPetition = () => {
             <div className="petition-line"></div>
             <h1 className="petition-title">Petition for Spouses in US</h1>
             <div className="petition-line"></div>
-            {spouseArray.map((item, index) => (
-              <ol>
-                <li key={index}>- {item}</li>
-              </ol>
+            {petitionSpouses.map((section, index) => (
+              <React.Fragment key={index}>
+                <h2>{`${index + 1}. ${section.title}`}</h2>
+                {section.items && (
+                  <ol>
+                    {section.items.map((item, itemIndex) => (
+                      <li key={itemIndex}>- {item}</li>
+                    ))}
+                  </ol>
+                )}
+              </React.Fragment>
             ))}
             {["left"].map((anchor) => (
               <React.Fragment key={anchor}>
@@ -154,10 +138,17 @@ const FamilyPetition = () => {
               Petition for Parents or Child in US
             </h1>
             <div className="petition-line"></div>
-            {spouseArray.map((item, index) => (
-              <ol>
-                <li key={index}>- {item}</li>
-              </ol>
+            {petitionParents.map((section, index) => (
+              <React.Fragment key={index}>
+                <h2>{`${index + 1}. ${section.title}`}</h2>
+                {section.items && (
+                  <ol>
+                    {section.items.map((item, itemIndex) => (
+                      <li key={itemIndex}>- {item}</li>
+                    ))}
+                  </ol>
+                )}
+              </React.Fragment>
             ))}
             {["right"].map((anchor) => (
               <React.Fragment key={anchor}>

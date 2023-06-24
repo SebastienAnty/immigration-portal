@@ -9,7 +9,7 @@ export const greenCard2Perm = [
     title: "Proof of Marriage (for the entire two years):",
     items: [
       "Taxes you filed jointly",
-      "Government-Issued ID which has you both living at the same address",
+      "Government-Issued Identification which has you both living at the same address",
       "Pictures of both of you with friends and family",
       "Joint Bank Accounts",
       "Health Insurance for the both of you",

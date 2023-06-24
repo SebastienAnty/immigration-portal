@@ -11,7 +11,7 @@ export const widowVawaDocs = [
     title: "Proof of the Relationship",
     items: [
       "Taxes filed jointly",
-      "Government-issued ID showing you both lived at the same address",
+      "Government-issued Identification showing you both lived at the same address",
       "Pictures of the both of you with family and friends",
       "Bank statements with both of your names",
       "Health insurance for the both of you",
@@ -24,15 +24,15 @@ export const widowVawaDocs = [
     title: "Beneficiary (extrait des archives ONLY)",
     items: [
       "Birth Certificate",
-      "8 Passport-Style Pictures",
-      "Passport used to when coming into the country",
+      "8 passport-style pictures",
+      "Passport used when coming into the country",
       "Divorce OR Death Certificate from all previous marriages",
       "Police Background Check from each county where they lived in the US",
       "Medical Exam - from USCIS-approved Doctor",
     ],
   },
   {
-    title: "Personal Check or Money Order $535 and $1225 for (USCIS)",
+    title: "Personal Check or Money Order $535 and $1,225 for (USCIS)",
   },
   {
     title: "GITMO Service Fee: $500",

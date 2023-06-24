@@ -3,9 +3,9 @@ export const petitionSpouse = [
     title: "Petitioner",
     items: [
       "Proof of US citizenship or Permanent Residence",
-      "2 Passport-Styled Pictures",
+      "2 passport-styled pictures",
       "Divorce AND/OR Death Certificate from each previous marriage",
-      "Last 3 Income Taxes w/ W-2s",
+      "Last 3 Income Taxes w/ W-2",
       "Most Recent Pay Stub",
     ],
   },
@@ -13,24 +13,20 @@ export const petitionSpouse = [
     title:
       "Beneficiary (ALL DOCUMENTS MUST BE SCANNED W/ ALL 4 CORNERS SHOWING)",
     items: [
-      "8 Passport-Styled Pictures",
-      "Copy Passport",
-      "Divorce OR Death Certificatefrom all previous marriages",
+      "8 passport-styled pictures",
+      "Copy of Passport",
+      "Divorce OR Death Certificate from all previous marriages",
       "Police background check (dependign of embassy requirements)",
     ],
   },
   {
     title:
       "Available Funds in a Bank Account: $120 in a Bank Account (for State Department)",
-  },
-  {
-    title: "Name of Account Holder",
-  },
-  {
-    title: "Bank Routing Number",
-  },
-  {
-    title: "Bank Account Number",
+    items: [
+      "Name of Account Holder",
+      "Bank Routing Number",
+      "Bank Account Number",
+    ],
   },
   {
     title:

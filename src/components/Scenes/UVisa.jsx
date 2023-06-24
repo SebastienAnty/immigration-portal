@@ -15,8 +15,8 @@ const UVisa = () => {
   });
 
   const uVisaArray = [
-    "(I-918, Petition for U Nonimmigrant Status)",
-    "(I-192, Application for Advance Permission to Enter an Nonimmigrant)",
+    "I-918, Petition for U Nonimmigrant Status",
+    "I-192, Application for Advance Permission to Enter a Nonimmigrant",
   ];
 
   const toggleDrawer = (anchor, open) => (event) => {
@@ -37,7 +37,10 @@ const UVisa = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {uVisaDocs.map((text, index) => (
+        <ListItem>
+          <ListItemText secondary="U VISA" />
+        </ListItem>
+        {uVisaArray.map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemText primary={`${index + 1} - ${text}`} />
@@ -52,11 +55,13 @@ const UVisa = () => {
       <div className="asylum-line"></div>
       <h1 className="asylum-title">U VISA</h1>
       <div className="asylum-line"></div>
-      {uVisaArray.map((item, index) => (
-        <ol style={{ marginTop: 50, marginBottom: 25 }}>
-          <li key={index}>- {item}</li>
-        </ol>
-      ))}
+      <ol>
+        {uVisaDocs.map((item, index) => (
+          <li className="asylum-list" key={index}>
+            {item}
+          </li>
+        ))}
+      </ol>
       {["Open List"].map((anchor) => (
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>

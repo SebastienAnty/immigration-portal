@@ -24,8 +24,8 @@ const FianceVisa = () => {
   };
 
   const fianceArray = [
-    "(I-129, Petition for Alien Fiancé(e))",
-    "(I-134A, Affidavit of Support)",
+    "I-129, Petition for Alien Fiancé(e)",
+    "I-134A, Affidavit of Support",
   ];
 
   const list = (anchor) => (
@@ -36,31 +36,16 @@ const FianceVisa = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {fianceVisa.map((section, index) => (
+        <ListItem>
+          <ListItemText secondary="Fiancé Visa" />
+        </ListItem>
+        {fianceArray.map((item, index) => (
           <React.Fragment key={index}>
             <ListItem disablePadding>
               <ListItemButton>
-                <ListItemText primary={`${index + 1} - ${section.title}`} />
+                <ListItemText primary={`${index + 1} - ${item}`} />
               </ListItemButton>
             </ListItem>
-            {section.items && (
-              <List sx={{ paddingLeft: "20px" }}>
-                <ListItem disablePadding>
-                  <ListItemText
-                    primary={section.itemsTitle}
-                    primaryTypographyProps={{ variant: "subtitle2" }}
-                  />
-                </ListItem>
-                {section.items.map((item, itemIndex) => (
-                  <ListItem key={itemIndex} disablePadding>
-                    <ListItemText
-                      primary={`- ${item}`}
-                      primaryTypographyProps={{ variant: "body2" }}
-                    />
-                  </ListItem>
-                ))}
-              </List>
-            )}
           </React.Fragment>
         ))}
       </List>
@@ -70,20 +55,20 @@ const FianceVisa = () => {
   return (
     <div className="bidenCard-container">
       <div className="vc-line"></div>
-      <h1 className="vc-title">Biden Parole</h1>
+      <h1 className="vc-title">Fiancé(e) Visa</h1>
       <div className="vc-line"></div>
-      <ol>
-        {fianceArray.map((item, index) => (
-          <ol
-            style={{
-              marginTop: 50,
-              marginBottom: 50,
-            }}
-          >
-            <li key={index}>- {item}</li>
-          </ol>
-        ))}
-      </ol>
+      {fianceVisa.map((section, index) => (
+        <React.Fragment key={index}>
+          <h2>{`${index + 1}. ${section.title}`}</h2>
+          {section.items && (
+            <ol>
+              {section.items.map((item, itemIndex) => (
+                <li key={itemIndex}>- {item}</li>
+              ))}
+            </ol>
+          )}
+        </React.Fragment>
+      ))}
       {["Open List"].map((anchor) => (
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>

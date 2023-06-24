@@ -16,9 +16,9 @@ const TPS = () => {
   });
 
   const tpsArray = [
-    "(I-821, Application for Protected Status)",
-    "(I-765, Request for Employment Authorization)",
-    "(I-601, Application for Waiver of Grounds of Inadmissibility - of applicable)",
+    "I-821, Application for Protected Status",
+    "I-765, Request for Employment Authorization",
+    "I-601, Application for Waiver of Grounds of Inadmissibility - of applicable",
   ];
 
   const toggleDrawer = (anchor, open) => (event) => {
@@ -43,7 +43,10 @@ const TPS = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {TPSInitial.map((text, index) => (
+        <ListItem>
+          <ListItemText secondary="TPS Initial" />
+        </ListItem>
+        {tpsArray.map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemText primary={`${index + 1} - ${text}`} />
@@ -62,7 +65,10 @@ const TPS = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {TPSRenewal.map((text, index) => (
+        <ListItem>
+          <ListItemText secondary="TPS Renewal" />
+        </ListItem>
+        {tpsArray.map((text, index) => (
           <ListItem key={text} disablePadding>
             <ListItemButton>
               <ListItemText primary={`${index + 1} - ${text}`} />
@@ -91,11 +97,13 @@ const TPS = () => {
             <div className="petition-line"></div>
             <h1 className="petition-title">TPS Initial</h1>
             <div className="petition-line"></div>
-            {tpsArray.map((item, index) => (
-              <ol style={{ marginTop: 50, marginBottom: 25 }}>
-                <li key={index}>- {item}</li>
-              </ol>
-            ))}
+            <ol className="tps-list-item">
+              {TPSInitial.map((item, index) => (
+                <li key={`initial-${index}`} className="tps-list">
+                  {item}
+                </li>
+              ))}
+            </ol>
             {["left"].map((anchor) => (
               <React.Fragment key={anchor}>
                 <Button onClick={toggleDrawer(anchor, true)}>Open List</Button>
@@ -114,11 +122,13 @@ const TPS = () => {
             <div className="petition-line"></div>
             <h1 className="petition-title">TPS Renewal</h1>
             <div className="petition-line"></div>
-            {tpsArray.map((item, index) => (
-              <ol style={{ marginTop: 50, marginBottom: 25 }}>
-                <li key={index}>- {item}</li>
-              </ol>
-            ))}
+            <ol className="tps-list-item">
+              {TPSRenewal.map((item, index) => (
+                <li key={`renewal-${index}`} className="tps-list">
+                  {item}
+                </li>
+              ))}
+            </ol>
             {["right"].map((anchor) => (
               <React.Fragment key={anchor}>
                 <Button onClick={toggleDrawer(anchor, true)}>Open List</Button>

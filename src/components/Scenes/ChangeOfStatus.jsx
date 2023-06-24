@@ -10,6 +10,20 @@ import { spouseCitizen, childCitizen } from "./documents/ChangeOfStatusDoc";
 import "./styles/changeofStatus.css";
 
 const ChangeOfStatus = () => {
+  const spouseOfUSCitizen = [
+    "(I-485, Application to Register Permanent Residence or Adjust Status)",
+    "(I-864, Affidavit of Support Under Section 213A of the INA)",
+    "(I-765, Application for Employment Authorization)",
+    "(I-131, Application for Travel Document)",
+  ];
+
+  const childOfUSCitizen = [
+    "(I-485, Application to Register Permanent Residence or Adjust Status)",
+    "(I-864, Affidavit of Support Under Section 213A of the INA)",
+    "(I-765, Application for Employment Authorization)",
+    "(I-131, Application for Travel Document)",
+  ];
+
   const [state, setState] = useState({
     left: false,
     right: false,
@@ -37,31 +51,16 @@ const ChangeOfStatus = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {spouseCitizen.map((section, index) => (
+        <ListItem>
+          <ListItemText secondary="Spouse of US Citizen" />
+        </ListItem>
+        {spouseOfUSCitizen.map((item, index) => (
           <React.Fragment key={index}>
             <ListItem disablePadding>
               <ListItemButton>
-                <ListItemText primary={`${index + 1} - ${section.title}`} />
+                <ListItemText primary={`${index + 1} - ${item}`} />
               </ListItemButton>
             </ListItem>
-            {section.items && (
-              <List sx={{ paddingLeft: "20px" }}>
-                <ListItem disablePadding>
-                  <ListItemText
-                    primary={section.itemsTitle}
-                    primaryTypographyProps={{ variant: "subtitle2" }}
-                  />
-                </ListItem>
-                {section.items.map((item, itemIndex) => (
-                  <ListItem key={itemIndex} disablePadding>
-                    <ListItemText
-                      primary={`- ${item}`}
-                      primaryTypographyProps={{ variant: "body2" }}
-                    />
-                  </ListItem>
-                ))}
-              </List>
-            )}
           </React.Fragment>
         ))}
       </List>
@@ -76,25 +75,16 @@ const ChangeOfStatus = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {childCitizen.map((section, index) => (
+        <ListItem>
+          <ListItemText secondary="Child of US Citizen or Permanent Resident" />
+        </ListItem>
+        {childOfUSCitizen.map((item, index) => (
           <React.Fragment key={index}>
             <ListItem disablePadding>
               <ListItemButton>
-                <ListItemText primary={`${index + 1} - ${section.title}`} />
+                <ListItemText primary={`${index + 1} - ${item}`} />
               </ListItemButton>
             </ListItem>
-            {section.items && (
-              <List sx={{ paddingLeft: "20px" }}>
-                {section.items.map((item, itemIndex) => (
-                  <ListItem key={itemIndex} disablePadding>
-                    <ListItemText
-                      primary={`- ${item}`}
-                      primaryTypographyProps={{ variant: "body2" }}
-                    />
-                  </ListItem>
-                ))}
-              </List>
-            )}
           </React.Fragment>
         ))}
       </List>
@@ -117,16 +107,18 @@ const ChangeOfStatus = () => {
             <div className="cos-line"></div>
             <h1 className="cos-title">Spouse of US Citizen</h1>
             <div className="cos-line"></div>
-            <ol>
-              <li
-                style={{
-                  marginTop: 50,
-                  marginBottom: 50,
-                }}
-              >
-                - (I-751, Petition to Remove Conditions on Residence)
-              </li>
-            </ol>
+            {spouseCitizen.map((section, index) => (
+              <React.Fragment key={index}>
+                <h2>{`${index + 1}. ${section.title}`}</h2>
+                {section.items && (
+                  <ol>
+                    {section.items.map((item, itemIndex) => (
+                      <li key={itemIndex}>- {item}</li>
+                    ))}
+                  </ol>
+                )}
+              </React.Fragment>
+            ))}
             {["left"].map((anchor) => (
               <React.Fragment key={anchor}>
                 <Button onClick={toggleDrawer(anchor, true)}>
@@ -149,16 +141,18 @@ const ChangeOfStatus = () => {
               Child of US Citizen or Permanent Resident
             </h1>
             <div className="cos-line"></div>
-            <ol>
-              <li
-                style={{
-                  marginTop: 50,
-                  marginBottom: 50,
-                }}
-              >
-                - (I-751, Petition to Remove Conditions on Residence)
-              </li>
-            </ol>
+            {childCitizen.map((section, index) => (
+              <React.Fragment key={index}>
+                <h2>{`${index + 1}. ${section.title}`}</h2>
+                {section.items && (
+                  <ol>
+                    {section.items.map((item, itemIndex) => (
+                      <li key={itemIndex}>- {item}</li>
+                    ))}
+                  </ol>
+                )}
+              </React.Fragment>
+            ))}
             {["right"].map((anchor) => (
               <React.Fragment key={anchor}>
                 <Button onClick={toggleDrawer(anchor, true)}>Child List</Button>

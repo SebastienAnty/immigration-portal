@@ -15,8 +15,8 @@ const VisaCenter = () => {
   });
 
   const visaArray = [
-    "(DS-260, Online Immigrant Visa Application)",
-    "(I-864, Affidavit of Support)",
+    "DS-260, Online Immigrant Visa Application",
+    "I-864, Affidavit of Support",
   ];
 
   const toggleDrawer = (anchor, open) => (event) => {
@@ -37,31 +37,16 @@ const VisaCenter = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {petitionSpouse.map((section, index) => (
+        <ListItem>
+          <ListItemText secondary="Visa Center" />
+        </ListItem>
+        {visaArray.map((item, index) => (
           <React.Fragment key={index}>
             <ListItem disablePadding>
               <ListItemButton>
-                <ListItemText primary={`${index + 1} - ${section.title}`} />
+                <ListItemText primary={`${index + 1} - ${item}`} />
               </ListItemButton>
             </ListItem>
-            {section.items && (
-              <List sx={{ paddingLeft: "20px" }}>
-                <ListItem disablePadding>
-                  <ListItemText
-                    primary={section.itemsTitle}
-                    primaryTypographyProps={{ variant: "subtitle2" }}
-                  />
-                </ListItem>
-                {section.items.map((item, itemIndex) => (
-                  <ListItem key={itemIndex} disablePadding>
-                    <ListItemText
-                      primary={`- ${item}`}
-                      primaryTypographyProps={{ variant: "body2" }}
-                    />
-                  </ListItem>
-                ))}
-              </List>
-            )}
           </React.Fragment>
         ))}
       </List>
@@ -74,15 +59,17 @@ const VisaCenter = () => {
           <div className="vc-line"></div>
           <h1 className="vc-title">Petition for Spouse Outside of US</h1>
           <div className="vc-line"></div>
-          {visaArray.map((item, index) => (
-            <ol
-              style={{
-                marginTop: 50,
-                marginBottom: 25,
-              }}
-            >
-              <li key={index}>- {item}</li>
-            </ol>
+          {petitionSpouse.map((section, index) => (
+            <React.Fragment key={index}>
+              <h2>{`${index + 1}. ${section.title}`}</h2>
+              {section.items && (
+                <ol>
+                  {section.items.map((item, itemIndex) => (
+                    <li key={itemIndex}>- {item}</li>
+                  ))}
+                </ol>
+              )}
+            </React.Fragment>
           ))}
           {["Open List"].map((anchor) => (
             <React.Fragment key={anchor}>

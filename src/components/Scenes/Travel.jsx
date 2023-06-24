@@ -13,6 +13,8 @@ const Travel = () => {
     left: false,
   });
 
+  const travelArray = ["I-131, Application for Travel Document"];
+
   const toggleDrawer = (anchor, open) => (event) => {
     if (
       event.type === "keydown" &&
@@ -31,10 +33,13 @@ const Travel = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {travelDocs.map((text, index) => (
-          <ListItem key={text} disablePadding>
+        <ListItem>
+          <ListItemText secondary="Travel" />
+        </ListItem>
+        {travelArray.map((item, index) => (
+          <ListItem key={item} disablePadding>
             <ListItemButton>
-              <ListItemText primary={`${index + 1} - ${text}`} />
+              <ListItemText primary={`${index + 1} - ${item}`} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -46,14 +51,11 @@ const Travel = () => {
       <h1 className="asylum-title">Travel Document</h1>
       <div className="asylum-line"></div>
       <ol>
-        <li
-          style={{
-            marginTop: 50,
-            marginBottom: 50,
-          }}
-        >
-          - (I-131, Application for Travel Document)
-        </li>
+        {travelDocs.map((item, index) => (
+          <li className="asylum-list" key={index}>
+            {item}
+          </li>
+        ))}
       </ol>
       {["Open List"].map((anchor) => (
         <React.Fragment key={anchor}>

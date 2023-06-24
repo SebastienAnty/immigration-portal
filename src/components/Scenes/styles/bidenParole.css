@@ -1,6 +1,5 @@
 .bidenCard-container {
-    width: 600px;
-    height: 300px;
+    max-width: 900px;
     display: "flex";
     justify-content: "center";
     margin: auto;
@@ -9,6 +8,13 @@
     background-color: #f2f2f2;    
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-top: 20vh;
-    margin-bottom: 20vh;
+    margin-top: 10vh;
+    margin-bottom: 10vh;
 }
+
+.bidenCard-container h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: left;
+  }

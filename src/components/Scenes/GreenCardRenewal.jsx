@@ -13,6 +13,10 @@ const GreenCardRenewal = () => {
     left: false,
   });
 
+  const greenCardArray = [
+    "I-90, Application to Replace Permanent Resident Card (Green Card)",
+  ];
+
   const toggleDrawer = (anchor, open) => (event) => {
     if (
       event.type === "keydown" &&
@@ -31,31 +35,16 @@ const GreenCardRenewal = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {greenCardRenewal.map((section, index) => (
+        <ListItem>
+          <ListItemText secondary="Renew 10 Year Green Card" />
+        </ListItem>
+        {greenCardArray.map((item, index) => (
           <React.Fragment key={index}>
             <ListItem disablePadding>
               <ListItemButton>
-                <ListItemText primary={`${index + 1} - ${section.title}`} />
+                <ListItemText primary={`${index + 1} - ${item}`} />
               </ListItemButton>
             </ListItem>
-            {section.items && (
-              <List sx={{ paddingLeft: "20px" }}>
-                <ListItem disablePadding>
-                  <ListItemText
-                    primary={section.itemsTitle}
-                    primaryTypographyProps={{ variant: "subtitle2" }}
-                  />
-                </ListItem>
-                {section.items.map((item, itemIndex) => (
-                  <ListItem key={itemIndex} disablePadding>
-                    <ListItemText
-                      primary={`- ${item}`}
-                      primaryTypographyProps={{ variant: "body2" }}
-                    />
-                  </ListItem>
-                ))}
-              </List>
-            )}
           </React.Fragment>
         ))}
       </List>
@@ -69,17 +58,18 @@ const GreenCardRenewal = () => {
           <div className="vc-line"></div>
           <h1 className="vc-title">Renew 10 Year Green Card</h1>
           <div className="vc-line"></div>
-          <ol>
-            <li
-              style={{
-                marginTop: 50,
-                marginBottom: 50,
-              }}
-            >
-              - (I-90, Application to Replace Permanent Resident Card (Green
-              Card))
-            </li>
-          </ol>
+          {greenCardRenewal.map((section, index) => (
+            <React.Fragment key={index}>
+              <h2>{`${index + 1}. ${section.title}`}</h2>
+              {section.items && (
+                <ol>
+                  {section.items.map((item, itemIndex) => (
+                    <li key={itemIndex}>- {item}</li>
+                  ))}
+                </ol>
+              )}
+            </React.Fragment>
+          ))}
           {["Open List"].map((anchor) => (
             <React.Fragment key={anchor}>
               <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>

@@ -13,6 +13,8 @@ const WorkPermit = () => {
     left: false,
   });
 
+  const workPermitArray = ["I-765, Application for Employment Authorization"];
+
   const toggleDrawer = (anchor, open) => (event) => {
     if (
       event.type === "keydown" &&
@@ -31,10 +33,13 @@ const WorkPermit = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {workPermit.map((text, index) => (
-          <ListItem key={text} disablePadding>
+        <ListItem>
+          <ListItemText secondary="Work Permit" />
+        </ListItem>
+        {workPermitArray.map((item, index) => (
+          <ListItem key={item} disablePadding>
             <ListItemButton>
-              <ListItemText primary={`${index + 1} - ${text}`} />
+              <ListItemText primary={`${index + 1} - ${item}`} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -47,14 +52,11 @@ const WorkPermit = () => {
       <h1 className="asylum-title">Work Permit</h1>
       <div className="asylum-line"></div>
       <ol>
-        <li
-          style={{
-            marginTop: 50,
-            marginBottom: 50,
-          }}
-        >
-          - (I-765, Application for Employment Authorization)
-        </li>
+        {workPermit.map((item, index) => (
+          <li className="asylum-list" key={index}>
+            {item}
+          </li>
+        ))}
       </ol>
       {["Open List"].map((anchor) => (
         <React.Fragment key={anchor}>

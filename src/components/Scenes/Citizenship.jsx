@@ -32,33 +32,12 @@ const Citizenship = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {citizenshipDocs.map((section, index) => (
-          <React.Fragment key={index}>
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemText primary={`${index + 1} - ${section.title}`} />
-              </ListItemButton>
-            </ListItem>
-            {section.items && (
-              <List sx={{ paddingLeft: "20px" }}>
-                <ListItem disablePadding>
-                  <ListItemText
-                    primary={section.itemsTitle}
-                    primaryTypographyProps={{ variant: "subtitle2" }}
-                  />
-                </ListItem>
-                {section.items.map((item, itemIndex) => (
-                  <ListItem key={itemIndex} disablePadding>
-                    <ListItemText
-                      primary={`- ${item}`}
-                      primaryTypographyProps={{ variant: "body2" }}
-                    />
-                  </ListItem>
-                ))}
-              </List>
-            )}
-          </React.Fragment>
-        ))}
+        <ListItemButton>
+          <ListItemText secondary="Citizenship" />
+        </ListItemButton>
+        <ListItemButton>
+          <ListItem>N-400, Application for Naturalization</ListItem>
+        </ListItemButton>
       </List>
     </Box>
   );
@@ -70,16 +49,18 @@ const Citizenship = () => {
           <div className="vc-line"></div>
           <h1 className="vc-title">Citizenship</h1>
           <div className="vc-line"></div>
-          <ol>
-            <li
-              style={{
-                marginTop: 50,
-                marginBottom: 50,
-              }}
-            >
-              - (N-400, Application for Naturalization)
-            </li>
-          </ol>
+          {citizenshipDocs.map((section, index) => (
+            <React.Fragment key={index}>
+              <h2>{`${index + 1}. ${section.title}`}</h2>
+              {section.items && (
+                <ol>
+                  {section.items.map((item, itemIndex) => (
+                    <li key={itemIndex}>- {item}</li>
+                  ))}
+                </ol>
+              )}
+            </React.Fragment>
+          ))}
           {["Open List"].map((anchor) => (
             <React.Fragment key={anchor}>
               <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>

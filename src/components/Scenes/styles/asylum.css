@@ -6,8 +6,7 @@
   }
   
   .asylum-container {
-    width: 600px;
-    height: 300px;
+    max-width: 900px;
     margin: auto;
     padding: 20px;
     text-align: center;

@@ -1,23 +1,8 @@
 .cos-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-  }
-
-  .cos-card {
-    width: 600px;
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    padding: 20px;
-    text-align: center;
-    background-color: #f2f2f2;    
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-top: 20vh;
-    margin-bottom: 20vh;
   }
   
   .cos-title {
@@ -27,8 +12,7 @@
   }
   
   .section-container {
-    height: 300px;
-    width: 400px;
+    max-width: 900px;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;

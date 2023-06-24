@@ -1,22 +1,21 @@
 .petition-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
   }
 
   .petitionCard-container {
-    width: 400px;
-    height: 350px;
+    width: 600px;
     display: "flex";
     justify-content: "center";
-    padding: 20px;
+    padding: 25px;
     text-align: center;
     background-color: #f2f2f2;    
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-top: 11vh;
-    margin-bottom: 11vh;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
   }
   
   .petition-title {
@@ -26,7 +25,7 @@
   }
   
   .section-container {
-    width: 450px; /* Adjust the width as needed */
+    width: 450px; 
     margin-bottom: 30px;
     padding: 20px;
     border: 1px solid #ccc;
@@ -36,7 +35,7 @@
     margin-bottom: 5vh;
   }
   
-  .section-container h2 {
+  .petitionCard-container h2 {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;

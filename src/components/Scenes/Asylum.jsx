@@ -32,13 +32,14 @@ const AsylumScene = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {asylum.map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemText primary={`${index + 1} - ${text}`} />
-            </ListItemButton>
+        <ListItem>
+          <ListItemText secondary="Asylum" />
+        </ListItem>
+        <ListItemButton>
+          <ListItem>
+            I-589, Application for Asylum and for Withholding of Removal
           </ListItem>
-        ))}
+        </ListItemButton>
       </List>
     </Box>
   );
@@ -49,14 +50,11 @@ const AsylumScene = () => {
         <h1 className="asylum-title">Asylum</h1>
         <div className="asylum-line"></div>
         <ol>
-          <li
-            style={{
-              marginTop: 50,
-              marginBottom: 50,
-            }}
-          >
-            - (I-589, Application for Asylum and for Withholding of Removal)
-          </li>
+          {asylum.map((item, index) => (
+            <li className="asylum-list" key={index}>
+              {item}
+            </li>
+          ))}
         </ol>
         {["Open List"].map((anchor) => (
           <React.Fragment key={anchor}>
