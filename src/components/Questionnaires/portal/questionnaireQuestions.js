@@ -4,7 +4,7 @@ export const questions = [
     text: "How did you enter this country?",
     options: [
       { text: "Legally (through a port of entry)", nextQuestion: 1 },
-      { text: "Illegally", nextQuestion: 19 },
+      { text: "Illegally", nextQuestion: 28 },
     ],
   },
   /// INDEX 1
@@ -12,7 +12,7 @@ export const questions = [
     text: "Legally (through a port of entry)",
     options: [
       { text: "Has anyone ever filed for you?", nextQuestion: 2 },
-      { text: "How did you come in?", nextQuestion: 5 },
+      { text: "How did you come in?", nextQuestion: 4 },
     ],
   },
   /// INDEX 2
@@ -20,21 +20,21 @@ export const questions = [
     text: "Has anyone ever filed for you?",
     options: [
       { text: "Yes", nextQuestion: 3 },
-      { text: "No", nextQuestion: 7 },
+      { text: "No", nextQuestion: 4 },
     ],
   },
   /// INDEX 3
   {
-    text: "Check the priotity date",
-    result: "Check the priotity date",
+    text: "Yes",
+    result: ["Check the priority date"],
   },
   /// INDEX 4
   {
-    text: "Select your entry type",
+    text: "How did you come in?",
     options: [
       { text: "With a visa", nextQuestion: 5 },
-      { text: "Paroled into the country", nextQuestion: 5 },
-      { text: "Student Visa", nextQuestion: 12 },
+      { text: "Paroled into the country", nextQuestion: 12 },
+      { text: "Student ivsa", nextQuestion: 21 },
     ],
   },
   /// INDEX 5
@@ -42,13 +42,13 @@ export const questions = [
     text: "Is your spouse or child over 21 a US citizen?",
     options: [
       { text: "Yes", nextQuestion: 6 },
-      { text: "No", nextQuestion: 7 },
+      { text: "No", nextQuestion: 18 },
     ],
   },
   /// INDEX 6
   {
-    text: "Petition and Change of Status",
-    result: "Petition and Change of Status",
+    text: "Is your spouse or child over 21 a US citizen?",
+    result: ["Yes, redirect to Family Petition for Spouses in US"],
     redirect: "/doc/family-petition-with-cos",
   },
   /// INDEX 7
@@ -61,13 +61,13 @@ export const questions = [
   },
   /// INDEX 8
   {
-    text: "Temporary Protected Status (TPS)",
-    result: "Temporary Protected Status (TPS)",
+    text: "When did you arrive in this country?",
+    result: ["Before November 6, 2022, redirect to TPS Initial"],
     redirect: "/doc/temporaryprotectivestatus",
   },
   /// INDEX 9
   {
-    text: "Have you been the country for less than a year?",
+    text: "Have you been in the country for less than a year?",
     options: [
       { text: "Yes", nextQuestion: 10 },
       { text: "No", nextQuestion: 11 },
@@ -75,94 +75,160 @@ export const questions = [
   },
   /// INDEX 10
   {
-    text: "Asylum",
-    result: "Asylum",
+    text: "Have you been in the country for less than a year?",
+    result: ["Yes, redirect to Asylum"],
     redirect: "/doc/asylum",
   },
   /// INDEX 11
   {
-    text: "No papers can be filed at this time.",
-    result: "No papers can be filed at this time.",
+    text: "Have you been in the country for less than a year?",
+    result: ["No, no papers can be filed at this time"],
   },
   /// INDEX 12
   {
-    text: "Are you over the age of 21?",
+    text: "Is your spouse or child over 21 a US citizen?",
     options: [
       { text: "Yes", nextQuestion: 13 },
-      { text: "No", nextQuestion: 16 },
+      { text: "No", nextQuestion: 14 },
     ],
   },
   /// INDEX 13
   {
-    text: "Is your spouse or child over 21 and a US citizen?",
-    options: [
-      { text: "Yes", nextQuestion: 14 },
-      { text: "No", nextQuestion: 15 },
+    text: "Is your spouse or child over 21 a US citizen?",
+    result: [
+      "Yes, redirect to Family Petition for Parents or Child(ren) in US",
     ],
+    redirect: "/doc/family-petition-with-cos",
   },
   /// INDEX 14
   {
-    text: "Petition and Change of Status",
-    result: "Petition and Change of Status",
-    redirect: "/doc/family-petition-with-cos",
+    text: "When did you arrive in this country?",
+    options: [
+      { text: "Before November 6, 2022", nextQuestion: 15 },
+      { text: "After November 6, 2022", nextQuestion: 16 },
+    ],
   },
   /// INDEX 15
   {
-    text: "Asylum",
-    result: "Asylum",
+    text: "When did you arrive in this country?",
+    result: ["Before November 6, 2022, redirect to TPS Initial"],
+    redirect: "/doc/temporaryprotectivestatus",
   },
   /// INDEX 16
   {
-    text: "Do you have a parent who is a US citizen?",
+    text: "When did you arrive in this country?",
     options: [
-      { text: "Yes", nextQuestion: 17 },
-      { text: "No", nextQuestion: 18 },
+      { text: "Before November 6, 2022", nextQuestion: 17 },
+      { text: "After November 6, 2022", nextQuestion: 18 },
     ],
   },
   /// INDEX 17
   {
-    text: "Petition and Change of Status",
-    result: "Petition and Change of Status",
-    redirect: "/doc/family-petition-without-cos",
+    text: "When did you arrive in this country?",
+    result: ["Before November 6, 2022, redirect to TPS Initial"],
+    redirect: "/doc/temporaryprotectivestatus",
   },
   /// INDEX 18
   {
-    text: "Asylum",
-    result: "Asylum",
-    redirect: "/doc/asylum",
+    text: "After November 6, 2022",
+    options: [
+      { text: "Yes", nextQuestion: 19 },
+      { text: "No", nextQuestion: 20 },
+    ],
   },
   /// INDEX 19
   {
-    text: "Were you detained by a border agent?",
-    options: [
-      { text: "Yes", nextQuestion: 20 },
-      { text: "No", nextQuestion: 21 },
-    ],
+    text: "After November 6, 2022",
+    result: ["Yes, redirect to Asylum"],
+    redirect: "/doc/asylum",
   },
   /// INDEX 20
   {
-    text: "Asylum",
-    result: "Asylum",
-    redirect: "/doc/asylum",
+    text: "After November 6, 2022",
+    result: ["No, no papers can be filed at this time"],
   },
   /// INDEX 21
   {
-    text: "Do you have a relative, friend, church or pastor who will sign an affidavit that you were in the country before November 6th 2022?",
+    text: "Are you over the age of 21?",
     options: [
       { text: "Yes", nextQuestion: 22 },
-      { text: "No", nextQuestion: 23 },
+      { text: "No", nextQuestion: 25 },
     ],
   },
   /// INDEX 22
   {
-    text: "Temporary Protected Status (TPS)",
-    result: "Temporary Protected Status (TPS)",
-    redirect: "/doc/temporaryprotectivestatus",
+    text: "Is your spouse or child over 21 a US citizen?",
+    options: [
+      { text: "Yes", nextQuestion: 23 },
+      { text: "No", nextQuestion: 24 },
+    ],
   },
   /// INDEX 23
   {
-    text: "Asylum",
-    result: "Asylum",
+    text: "Is your spouse or child over 21 a US citizen?",
+    result: ["Yes, redirect to Family Petition with Change of Status"],
+    redirect: "/doc/family-petition-with-cos",
+  },
+  /// INDEX 24
+  {
+    text: "Is your spouse or child over 21 a US citizen?",
+    result: ["No, redirect to Asylum"],
+    redirect: "/doc/asylum",
+  },
+  /// INDEX 25
+  {
+    text: "Do you have a parent who is a US citizen?",
+    options: [
+      { text: "Yes", nextQuestion: 26 },
+      { text: "No", nextQuestion: 27 },
+    ],
+  },
+  /// INDEX 26
+  {
+    text: "Do you have a parent who is a US citizen?",
+    result: [
+      "Yes, redirect to Family Petition for Parents/Child(ren) inside the US",
+    ],
+    redirect: "/doc/family-petition-with-cos",
+  },
+  /// INDEX 27
+  {
+    text: "Do you have a parent who is a US citizen?",
+    result: ["No, redirect to Asylum"],
+    redirect: "/doc/asylum",
+  },
+  /// INDEX 28
+  {
+    text: "Were you detained by a border agent?",
+    options: [
+      { text: "Yes", nextQuestion: 29 },
+      { text: "No", nextQuestion: 30 },
+    ],
+  },
+  /// INDEX 29
+  {
+    text: "Were you detained by a border agent?",
+    result: ["Yes, redirect to Asylum"],
+    redirect: "/doc/asylum",
+  },
+  /// INDEX 30
+  {
+    text: "Do you have a relative, friend, church or pastor who will sign an affidavit that you were in the country before November 6, 2022?",
+    options: [
+      { text: "Yes", nextQuestion: 31 },
+      { text: "No", nextQuestion: 32 },
+    ],
+  },
+  /// INDEX 31
+  {
+    text: "Do you have a relative, friend, church or pastor who will sign an affidavit that you were in the country before November 6, 2022?",
+    result: ["Yes, redirect to TPS Initial"],
+    redirect: "/doc/temporaryprotectivestatus",
+  },
+  /// INDEX 32
+  {
+    text: "Do you have a relative, friend, church or pastor who will sign an affidavit that you were in the country before November 6, 2022?",
+    result: ["No, redirect to Asylum"],
     redirect: "/doc/asylum",
   },
 ];

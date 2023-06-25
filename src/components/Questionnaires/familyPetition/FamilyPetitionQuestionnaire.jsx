@@ -6,6 +6,7 @@ import FamilyQuestions from "./FamilyQuestions";
 const FamilyPetitionQuestionnaire = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [prevQuestion, setPrevQuestion] = useState(null);
+  const [isRestarted, setIsRestarted] = useState(false);
   const [answers, setAnswers] = useState([]);
 
   useEffect(() => {
@@ -18,6 +19,15 @@ const FamilyPetitionQuestionnaire = () => {
   useEffect(() => {
     localStorage.setItem("currentQuestionIndex", currentQuestion.toString());
   }, [currentQuestion]);
+
+  useEffect(() => {
+    if (isRestarted) {
+      setCurrentQuestion(0);
+      setPrevQuestion(null);
+      setAnswers([]);
+      setIsRestarted(false);
+    }
+  }, [isRestarted]);
 
   const handleAnswer = (nextQuestion, answer) => {
     setAnswers([...answers, answer]);
@@ -34,32 +44,21 @@ const FamilyPetitionQuestionnaire = () => {
     }
   };
 
+  const restartQuestionnaire = () => {
+    setIsRestarted(true);
+  };
+
   const currentQuestionData = familyQuestions[currentQuestion];
-
-  const renderQuestion = () => {
-    return (
-      <FamilyQuestions
-        question={currentQuestionData}
-        handleAnswer={handleAnswer}
-        goToPrevQuestion={currentQuestion > 0 ? goToPrevQuestion : null}
-      />
-    );
-  };
-
-  const renderResult = () => {
-    if (currentQuestionData && currentQuestionData.result !== undefined) {
-      return (
-        <FamilyResults result={currentQuestionData.result} answers={answers} />
-      );
-    } else {
-      return null;
-    }
-  };
 
   return (
     <div className="questionnaire">
       {currentQuestionData.result !== undefined ? (
-        <FamilyResults result={currentQuestionData.result} answers={answers} />
+        <FamilyResults
+          result={currentQuestionData.result}
+          answers={answers}
+          restartQuestionnaire={restartQuestionnaire}
+          familyQuestions={familyQuestions}
+        />
       ) : (
         <FamilyQuestions
           question={currentQuestionData}

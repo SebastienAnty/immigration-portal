@@ -8,7 +8,7 @@ const Question = ({ question, handleAnswer, goToPrevQuestion }) => {
       </div>
       <div className="options">
         {question.options &&
-          question.options.map((option, index) => (
+          question.options?.map((option, index) => (
             <button
               key={index}
               className="option"

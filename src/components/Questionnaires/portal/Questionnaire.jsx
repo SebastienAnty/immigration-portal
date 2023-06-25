@@ -7,6 +7,7 @@ import "./questionnaire.css";
 const Questionnaire = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [prevQuestion, setPrevQuestion] = useState(null);
+  const [isRestarted, setIsRestarted] = useState(false);
   const [answers, setAnswers] = useState([]);
 
   useEffect(() => {
@@ -19,6 +20,15 @@ const Questionnaire = () => {
   useEffect(() => {
     localStorage.setItem("currentQuestionIndex", currentQuestion.toString());
   }, [currentQuestion]);
+
+  useEffect(() => {
+    if (isRestarted) {
+      setCurrentQuestion(0);
+      setPrevQuestion(null);
+      setAnswers([]);
+      setIsRestarted(false);
+    }
+  }, [isRestarted]);
 
   const handleAnswer = (nextQuestion, answer) => {
     setAnswers([...answers, answer]);
@@ -35,12 +45,21 @@ const Questionnaire = () => {
     }
   };
 
+  const restartQuestionnaire = () => {
+    setIsRestarted(true);
+  };
+
   const currentQuestionData = questions[currentQuestion];
 
   return (
     <div className="questionnaire">
       {currentQuestionData.result !== undefined ? (
-        <Result result={currentQuestionData.result} answers={answers} />
+        <Result
+          result={currentQuestionData.result}
+          answers={answers}
+          restartQuestionnaire={restartQuestionnaire}
+          questions={questions}
+        />
       ) : (
         <Question
           question={currentQuestionData}

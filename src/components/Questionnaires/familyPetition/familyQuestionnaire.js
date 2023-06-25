@@ -22,8 +22,9 @@ export const familyQuestions = [
     result: [
       "Apply for Spouse if the couple was married before being granted asylum.",
       "Apply for an unmarried child(ren) under 21, if child was born before granted asylum, amd under 21 when asylum was turned in.",
+      "Redirect to Family Petition for Spouse/Child(ren) of Asylee.",
     ],
-    redirect: "/doc/family-petition-with-cos",
+    redirect: "/doc/family-petition-without-cos",
   },
   /// INDEX 3
   {
@@ -36,13 +37,15 @@ export const familyQuestions = [
   /// INDEX 4
   {
     text: "Are you already a resident?",
-    result: "Yes",
-    redirect: "/doc/family-petition-with-cos",
+    result: [
+      "Yes, redirect to Family Petition for Spouse/Child(ren) of Asylee",
+    ],
+    redirect: "/doc/family-petition-without-cos",
   },
   /// INDEX 5
   {
     text: "Are you already a resident?",
-    result: "Nothing can be done until you change your status.",
+    result: ["Nothing can be done until you change your status."],
   },
   /// INDEX 6
   {
@@ -75,13 +78,13 @@ export const familyQuestions = [
   /// INDEX 9
   {
     text: "Did your spouse come to the US legally?",
-    result: "Yes",
+    result: ["Yes, redirect to Family Petition for Spouses in the US."],
     redirect: "/doc/family-petition-with-cos",
   },
   /// INDEX 10
   {
     text: "Did your spouse come to the US legally?",
-    result: "No",
+    result: ["No, redirect to Family Petition for Spouses outside the US."],
     redirect: "/doc/family-petition-without-cos",
   },
   /// INDEX 11
@@ -95,19 +98,25 @@ export const familyQuestions = [
   /// INDEX 12
   {
     text: "Where does your child live?",
-    result: "Inside the US",
+    result: [
+      "Inside the US, Redirect to Family Petition for Child(ren) in the US",
+    ],
     redirect: "/doc/family-petition-with-cos",
   },
   /// INDEX 13
   {
     text: "Where does your child live?",
-    result: "Outside the US",
+    result: [
+      "Outside the US, Redirect to Family Petition for Child(ren) outside the US",
+    ],
     redirect: "/doc/family-petition-without-cos",
   },
   /// INDEX 14
   {
     text: "Apply for non-married son or daughter over 21.",
-    result: "Apply for non-married son or daughter over 21.",
+    result: [
+      "Apply for non-married son or daughter over 21. Redirect to Family Petition for Parents/Child(ren) outside the US",
+    ],
     redirect: "/doc/family-petition-without-cos",
   },
   /// INDEX 15
@@ -134,13 +143,15 @@ export const familyQuestions = [
   /// INDEX 17
   {
     text: "Where does your spouse live?",
-    result: "Inside the US",
+    result: ["Inside the US. Redirect to Family Petition for Spouse in the US"],
     redirect: "/doc/family-petition-with-cos",
   },
   /// INDEX 18
   {
     text: "Where does your spouse live?",
-    result: "Outside the US",
+    result: [
+      "Outside the US. Redirect to Family Petition for Spouse outside the US",
+    ],
     redirect: "/doc/family-petition-without-cos",
   },
   /// INDEX 19
@@ -154,20 +165,25 @@ export const familyQuestions = [
   /// INDEX 20
   {
     text: "Inside the US",
-    result: "Inside the US",
+    result: [
+      "Inside the US. Redirect to Family Petition for Parents/Child(ren) in the US",
+    ],
     redirect: "/doc/family-petition-with-cos",
   },
   /// INDEX 21
   {
     text: "Outside the US",
-    result: "Outside the US",
+    result: [
+      "Outside the US. Redirect to Family Petition for Parents/Child(ren) outside the US",
+    ],
     redirect: "/doc/family-petition-without-cos",
   },
   /// INDEX 22
   {
     text: "Apply for sons or daughters over 21 (married and non-married with child(ren)).",
-    result:
-      "Apply for sons or daughters over 21 (married and non-married with child(ren)).",
+    result: [
+      "Apply for sons or daughters over 21 (married and non-married with child(ren)). Redirect to Family Petition for Parents/Child(ren) outside the US",
+    ],
     redirect: "/doc/family-petition-without-cos",
   },
   /// INDEX 23
@@ -189,20 +205,25 @@ export const familyQuestions = [
   /// INDEX 25
   {
     text: "Inside the US",
-    result: "Inside the US",
+    result: [
+      "Inside the US. Redirect to Family Petition for Parents/Child(ren) in the US",
+    ],
     redirect: "/doc/family-petition-with-cos",
   },
   /// INDEX 26
   {
     text: "Outside the US",
-    result: "Outside the US",
+    result: [
+      "Outside the US. Redirect to Family Petition for Parents/Child(ren) outside the US",
+    ],
     redirect: "/doc/family-petition-without-cos",
   },
   /// INDEX 27
   {
     text: "Apply for siblings.",
-    result:
-      "(One I-130 application for each sibling - spouse and children included in the application)",
+    result: [
+      "One I-130 application for each sibling - spouse and children included in the application. Redirect to Family Petition for Parents/Child(ren) outside the US",
+    ],
     redirect: "/doc/family-petition-without-cos",
   },
 ];
