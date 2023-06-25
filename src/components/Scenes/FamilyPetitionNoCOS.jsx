@@ -138,7 +138,9 @@ const FamilyPetitionNoCOS = () => {
         <div className="petition-container">
           <div className="petitionCard-container">
             <div className="petition-line"></div>
-            <h1 className="petition-title">Petition for Spouses in US</h1>
+            <h1 className="petition-title">
+              Family Petition for Spouses outside the US
+            </h1>
             <div className="petition-line"></div>
             {familyPetitionSpouse.map((section, index) => (
               <React.Fragment key={index}>
@@ -171,7 +173,7 @@ const FamilyPetitionNoCOS = () => {
           <div className="petitionCard-container">
             <div className="petition-line"></div>
             <h1 className="petition-title">
-              Petition for Parents or Child in US
+              Family Petition for Parents/Child(ren) outside the US
             </h1>
             <div className="petition-line"></div>
             {familyPetitionParentsChild.map((section, index) => (
