@@ -19,7 +19,7 @@ export const routeMapping = {
   [questions[0]]: "/doc/greencardtopermanent",
   [questions[1]]: "/doc/asylum",
   [questions[2]]: "/doc/bidenparole",
-  [questions[3]]: "/doc/changeofstatus",
+  [questions[3]]: "",
   [questions[4]]: "/doc/citizenship",
   [questions[5]]: "",
   [questions[6]]: "/doc/fiancevisa",

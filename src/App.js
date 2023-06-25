@@ -16,7 +16,6 @@ import TPS from "./components/Scenes/TPS";
 import AsylumScene from "./components/Scenes/Asylum";
 import FamilyPetition from "./components/Scenes/FamilyPetitionCOS";
 import FianceVisa from "./components/Scenes/FianceVisa";
-import ChangeOfStatus from "./components/Scenes/ChangeOfStatus";
 import VisaCenter from "./components/Scenes/VisaCenter";
 import WorkPermit from "./components/Scenes/WorkPermit";
 import GreenCard from "./components/Scenes/GreenCard2Perm";
@@ -30,6 +29,8 @@ import Questionnaire from "./components/Questionnaires/portal/Questionnaire";
 import FamilyPetitionNoCOS from "./components/Scenes/FamilyPetitionNoCOS";
 import FamilyPetitionQuestionnaire from "./components/Questionnaires/familyPetition/FamilyPetitionQuestionnaire";
 import ComingSoon from "./components/common/ComingSoon";
+import SpouseChangeStatus from "./components/Scenes/SpouseChangeStatus";
+import ChildChangeStatus from "./components/Scenes/ChangeOfStatus";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -82,7 +83,14 @@ function App() {
                 element={<FamilyPetitionNoCOS />}
               />
               <Route path="/doc/fiancevisa" element={<FianceVisa />} />
-              <Route path="/doc/changeofstatus" element={<ChangeOfStatus />} />
+              <Route
+                path="/doc/changeofstatus/spouse"
+                element={<SpouseChangeStatus />}
+              />
+              <Route
+                path="/doc/changeofstatus/child"
+                element={<ChildChangeStatus />}
+              />
               <Route path="/doc/visacenter" element={<VisaCenter />} />
               <Route path="/doc/workpermit" element={<WorkPermit />} />
               <Route path="/doc/greencardtopermanent" element={<GreenCard />} />

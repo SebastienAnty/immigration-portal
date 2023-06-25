@@ -8,27 +8,37 @@ import { Button, Modal, Box } from "@mui/material";
 const LandingScreen = () => {
   const [selectedQuestion, setSelectedQuestion] = useState("");
   const [userFirstName, setUserFirstName] = useState("");
-  const [displayStatusChangeModal, setDisplayStatusChangeModal] =
+  const [displayFamilyPetitionModal, setDisplayFamilyPetitionModal] =
     useState(false);
-  const [displayStatusChangeButtons, setDisplayStatusChangeButtons] =
+  const [displayChangeOfStatusModal, setDisplayChangeOfStatusModal] =
     useState(false);
   const navigation = useNavigate();
 
   const handleQuestionClick = (question) => {
     setSelectedQuestion(question);
     if (question === "Family Petition") {
-      setDisplayStatusChangeModal(true);
+      setDisplayFamilyPetitionModal(true);
+    } else if (question === "Change of Status") {
+      setDisplayChangeOfStatusModal(true);
     } else {
       const route = routeMapping[question];
       if (route) {
-        setDisplayStatusChangeModal(false);
+        setDisplayFamilyPetitionModal(false);
+        setDisplayChangeOfStatusModal(false);
         navigation(route);
       }
     }
   };
 
-  const handleStatusChangeOptionClick = (route) => {
-    setDisplayStatusChangeModal(false);
+  const handleFamilyPetitionOptionClick = (route) => {
+    setDisplayFamilyPetitionModal(false);
+    if (route) {
+      navigation(route);
+    }
+  };
+
+  const handleChangeOfStatusOptionClick = (route) => {
+    setDisplayChangeOfStatusModal(false);
     if (route) {
       navigation(route);
     }
@@ -59,10 +69,10 @@ const LandingScreen = () => {
         </h2>
       )}
 
-      {displayStatusChangeModal && (
+      {displayFamilyPetitionModal && (
         <Modal
-          open={displayStatusChangeModal}
-          onClose={() => setDisplayStatusChangeModal(false)}
+          open={displayFamilyPetitionModal}
+          onClose={() => setDisplayFamilyPetitionModal(false)}
         >
           <Box
             sx={{
@@ -70,7 +80,7 @@ const LandingScreen = () => {
               top: "50%",
               left: "50%",
               transform: "translate(-50%, -50%)",
-              width: 400,
+              width: 500,
               bgcolor: "background.paper",
               border: "2px solid #000",
               boxShadow: 24,
@@ -78,10 +88,11 @@ const LandingScreen = () => {
             }}
           >
             <h2 id="modal-title">Family Petition Options</h2>
+            {/* Add your desired options and routes for Family Petition */}
             <Button
               variant="contained"
               onClick={() =>
-                handleStatusChangeOptionClick("/doc/family-petition-with-cos")
+                handleFamilyPetitionOptionClick("/doc/family-petition-with-cos")
               }
               sx={{ mr: 2 }}
             >
@@ -90,12 +101,54 @@ const LandingScreen = () => {
             <Button
               variant="contained"
               onClick={() =>
-                handleStatusChangeOptionClick(
+                handleFamilyPetitionOptionClick(
                   "/doc/family-petition-without-cos"
                 )
               }
             >
               No Status Change
+            </Button>
+          </Box>
+        </Modal>
+      )}
+
+      {displayChangeOfStatusModal && (
+        <Modal
+          open={displayChangeOfStatusModal}
+          onClose={() => setDisplayChangeOfStatusModal(false)}
+        >
+          <Box
+            sx={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              width: 500,
+              bgcolor: "background.paper",
+              border: "2px solid #000",
+              boxShadow: 24,
+              p: 4,
+              justifyContent: "space-between",
+            }}
+          >
+            <h2 id="modal-title">Change of Status Options</h2>
+            {/* Add your desired options and routes for Change of Status */}
+            <Button
+              variant="contained"
+              onClick={() =>
+                handleChangeOfStatusOptionClick("/doc/changeofstatus/spouse")
+              }
+              sx={{ mr: 2 }}
+            >
+              Spouse of US Citizen
+            </Button>
+            <Button
+              variant="contained"
+              onClick={() =>
+                handleChangeOfStatusOptionClick("/doc/changeofstatus/child")
+              }
+            >
+              Child of US Citizen
             </Button>
           </Box>
         </Modal>

@@ -6,17 +6,10 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-import { spouseCitizen, childCitizen } from "./documents/ChangeOfStatusDoc";
+import { childCitizen } from "./documents/ChangeOfStatusDoc";
 import "./styles/changeofStatus.css";
 
-const ChangeOfStatus = () => {
-  const spouseOfUSCitizen = [
-    "I-485, Application to Register Permanent Residence or Adjust Status",
-    "I-864, Affidavit of Support Under Section 213A of the INA",
-    "I-765, Application for Employment Authorization",
-    "I-131, Application for Travel Document",
-  ];
-
+const ChildChangeStatus = () => {
   const childOfUSCitizen = [
     "I-485, Application to Register Permanent Residence or Adjust Status",
     "I-864, Affidavit of Support Under Section 213A of the INA",
@@ -42,30 +35,6 @@ const ChangeOfStatus = () => {
       [anchor === "left" ? "right" : "left"]: false,
     });
   };
-
-  const spouseList = (anchor) => (
-    <Box
-      sx={{ width: anchor === "top" || anchor === "bottom" ? "auto" : 250 }}
-      role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
-    >
-      <List>
-        <ListItem>
-          <ListItemText secondary="Spouse of US Citizen" />
-        </ListItem>
-        {spouseOfUSCitizen.map((item, index) => (
-          <React.Fragment key={index}>
-            <ListItem disablePadding>
-              <ListItemButton>
-                <ListItemText primary={`${index + 1} - ${item}`} />
-              </ListItemButton>
-            </ListItem>
-          </React.Fragment>
-        ))}
-      </List>
-    </Box>
-  );
 
   const childList = (anchor) => (
     <Box
@@ -105,38 +74,6 @@ const ChangeOfStatus = () => {
         <div className="cos-container">
           <div className="section-container">
             <div className="cos-line"></div>
-            <h1 className="cos-title">Spouse of US Citizen</h1>
-            <div className="cos-line"></div>
-            {spouseCitizen.map((section, index) => (
-              <React.Fragment key={index}>
-                <h2>{`${index + 1}. ${section.title}`}</h2>
-                {section.items && (
-                  <ol>
-                    {section.items.map((item, itemIndex) => (
-                      <li key={itemIndex}>- {item}</li>
-                    ))}
-                  </ol>
-                )}
-              </React.Fragment>
-            ))}
-            {["left"].map((anchor) => (
-              <React.Fragment key={anchor}>
-                <Button onClick={toggleDrawer(anchor, true)}>
-                  Spouse List
-                </Button>
-                <Drawer
-                  anchor={anchor}
-                  open={state[anchor]}
-                  onClose={toggleDrawer(anchor, false)}
-                >
-                  {spouseList(anchor)}
-                </Drawer>
-              </React.Fragment>
-            ))}
-          </div>
-
-          <div className="section-container">
-            <div className="cos-line"></div>
             <h1 className="cos-title">
               Child of US Citizen or Permanent Resident
             </h1>
@@ -153,7 +90,7 @@ const ChangeOfStatus = () => {
                 )}
               </React.Fragment>
             ))}
-            {["right"].map((anchor) => (
+            {["left"].map((anchor) => (
               <React.Fragment key={anchor}>
                 <Button onClick={toggleDrawer(anchor, true)}>Child List</Button>
                 <Drawer
@@ -172,4 +109,4 @@ const ChangeOfStatus = () => {
   );
 };
 
-export default ChangeOfStatus;
+export default ChildChangeStatus;
