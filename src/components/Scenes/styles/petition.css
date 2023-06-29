@@ -3,6 +3,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    margin-bottom: 25vh;
   }
 
   .petitionCard-container {
@@ -15,7 +16,6 @@
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-top: 5vh;
-    margin-bottom: 5vh;
   }
   
   .petition-title {

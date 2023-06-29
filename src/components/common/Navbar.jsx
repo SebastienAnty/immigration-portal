@@ -14,6 +14,7 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { auth } from "../../firebaseConfig";
+import fileLogo from "../../components/assets/USAPROFileLogo.jpg";
 
 const Navbar = ({ isLoggedIn, handleSignOut, displayName }) => {
   const navigation = useNavigate();

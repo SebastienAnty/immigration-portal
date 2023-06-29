@@ -61,7 +61,7 @@ const SpouseChangeStatus = () => {
   );
 
   return (
-    <div style={{ marginTop: 45 }}>
+    <div style={{ marginTop: 30 }}>
       <div
         style={{
           display: "flex",

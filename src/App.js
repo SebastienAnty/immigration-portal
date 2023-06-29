@@ -65,57 +65,63 @@ function App() {
           isLoggedIn={isLoggedIn}
           displayName={auth.currentUser?.displayName}
         />
-        <Routes>
-          <Route path="/" element={<LandingScreen />} />
-          <Route path="/comingsoon" element={<ComingSoon />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-          {isLoggedIn ? (
-            <>
-              <Route path="/doc/temporaryprotectivestatus" element={<TPS />} />
-              <Route path="/doc/asylum" element={<AsylumScene />} />
-              <Route
-                path="/doc/family-petition-with-cos"
-                element={<FamilyPetition />}
-              />
-              <Route
-                path="/doc/family-petition-without-cos"
-                element={<FamilyPetitionNoCOS />}
-              />
-              <Route path="/doc/fiancevisa" element={<FianceVisa />} />
-              <Route
-                path="/doc/changeofstatus/spouse"
-                element={<SpouseChangeStatus />}
-              />
-              <Route
-                path="/doc/changeofstatus/child"
-                element={<ChildChangeStatus />}
-              />
-              <Route path="/doc/visacenter" element={<VisaCenter />} />
-              <Route path="/doc/workpermit" element={<WorkPermit />} />
-              <Route path="/doc/greencardtopermanent" element={<GreenCard />} />
-              <Route
-                path="/doc/renew10yeargreencard"
-                element={<GreenCardRenewal />}
-              />
-              <Route path="/doc/citizenship" element={<Citizenship />} />
-              <Route path="/doc/bidenparole" element={<BidenParole />} />
-              <Route path="/doc/uvisa" element={<UVisa />} />
-              <Route path="/doc/widowervawa" element={<WidowVawa />} />
-              <Route path="/doc/traveldocument" element={<Travel />} />
-              <Route path="/questionnaire" element={<Questionnaire />} />
-              <Route
-                path="/family-petition-questionnaire"
-                element={<FamilyPetitionQuestionnaire />}
-              />
-            </>
-          ) : (
-            <Route path="*" element={<Navigate to="/login" />} />
-          )}
-        </Routes>
-        <div className="footer">
-          <Footer />
+        <div className="content-container">
+          <Routes>
+            <Route path="/" element={<LandingScreen />} />
+            <Route path="/comingsoon" element={<ComingSoon />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
+            {isLoggedIn ? (
+              <>
+                <Route
+                  path="/doc/temporaryprotectivestatus"
+                  element={<TPS />}
+                />
+                <Route path="/doc/asylum" element={<AsylumScene />} />
+                <Route
+                  path="/doc/family-petition-with-cos"
+                  element={<FamilyPetition />}
+                />
+                <Route
+                  path="/doc/family-petition-without-cos"
+                  element={<FamilyPetitionNoCOS />}
+                />
+                <Route path="/doc/fiancevisa" element={<FianceVisa />} />
+                <Route
+                  path="/doc/changeofstatus/spouse"
+                  element={<SpouseChangeStatus />}
+                />
+                <Route
+                  path="/doc/changeofstatus/child"
+                  element={<ChildChangeStatus />}
+                />
+                <Route path="/doc/visacenter" element={<VisaCenter />} />
+                <Route path="/doc/workpermit" element={<WorkPermit />} />
+                <Route
+                  path="/doc/greencardtopermanent"
+                  element={<GreenCard />}
+                />
+                <Route
+                  path="/doc/renew10yeargreencard"
+                  element={<GreenCardRenewal />}
+                />
+                <Route path="/doc/citizenship" element={<Citizenship />} />
+                <Route path="/doc/bidenparole" element={<BidenParole />} />
+                <Route path="/doc/uvisa" element={<UVisa />} />
+                <Route path="/doc/widowervawa" element={<WidowVawa />} />
+                <Route path="/doc/traveldocument" element={<Travel />} />
+                <Route path="/questionnaire" element={<Questionnaire />} />
+                <Route
+                  path="/family-petition-questionnaire"
+                  element={<FamilyPetitionQuestionnaire />}
+                />
+              </>
+            ) : (
+              <Route path="*" element={<Navigate to="/login" />} />
+            )}
+          </Routes>
         </div>
+        <Footer />
       </Router>
     </div>
   );

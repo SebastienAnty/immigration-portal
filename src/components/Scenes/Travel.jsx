@@ -7,6 +7,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { travelDocs } from "./documents/TravelDoc";
+import "./styles/travel.css";
 
 const Travel = () => {
   const [state, setState] = useState({
@@ -46,9 +47,10 @@ const Travel = () => {
       </List>
     </Box>
   );
+
   return (
-    <div className="asylum-container">
-      <h1 className="asylum-title">Travel Document</h1>
+    <div className="travel-container">
+      <h1 className="travel-title">Travel Document</h1>
       <div className="asylum-line"></div>
       <ol>
         {travelDocs.map((item, index) => (

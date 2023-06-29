@@ -4,7 +4,7 @@
     text-align: center;
   }
   
-  .asylum-container {
+  .workPermit-container {
     max-width: 900px;
     margin: auto;
     padding: 20px;
@@ -25,7 +25,7 @@
   margin: 20px 0;
 }
 
-.asylum-line {
+.workPermit-line {
     margin-bottom: 20px;
     border-bottom: 1px solid #ccc;
   }

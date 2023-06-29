@@ -7,6 +7,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import { greenCardRenewal } from "./documents/RenewGreenCardDoc";
+import "./styles/greenCardRenewal.css";
 
 const GreenCardRenewal = () => {
   const [state, setState] = useState({
@@ -54,7 +55,7 @@ const GreenCardRenewal = () => {
   return (
     <>
       <div className="vc-container">
-        <div className="citizenshipCard-container">
+        <div className="renewalCard-container">
           <div className="vc-line"></div>
           <h1 className="vc-title">Renew 10 Year Green Card</h1>
           <div className="vc-line"></div>

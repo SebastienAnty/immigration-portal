@@ -54,6 +54,15 @@ const VisaCenter = () => {
   );
   return (
     <>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          paddingTop: 40,
+        }}
+      >
+        <h1 style={{ color: "white", fontSize: 40 }}>Visa Center</h1>
+      </div>
       <div className="vc-container">
         <div className="vc-section-container">
           <div className="vc-line"></div>
