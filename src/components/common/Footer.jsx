@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./footer.css";
+import EmployeeDisclamer from "../assets/USAFILEPRO,INC.EMPLOYEEDISCLAIMER.pdf";
 
 const Footer = () => {
   return (
@@ -20,12 +21,9 @@ const Footer = () => {
         <div className="legal-section">
           <h3>Legal</h3>
           <ul>
-            <Link to="/comingsoon">
-              <li>Privacy Policy</li>
-            </Link>
-            <Link to="/comingsoon">
-              <li>Terms of Service</li>
-            </Link>
+            <a href={EmployeeDisclamer}>
+              <li>Employee Disclaimer</li>
+            </a>
           </ul>
         </div>
       </div>

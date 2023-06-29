@@ -12,7 +12,6 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
 import { auth } from "../../firebaseConfig";
 import fileLogo from "../../components/assets/USAPROFileLogo.jpg";
 
@@ -68,7 +67,13 @@ const Navbar = ({ isLoggedIn, handleSignOut, displayName }) => {
     <AppBar position="static" sx={{ bgcolor: "#424242" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
+          <Avatar
+            src={fileLogo}
+            sx={{
+              display: { xs: "none", md: "flex" },
+              mr: 1,
+            }}
+          />
           <Typography
             variant="h6"
             noWrap
@@ -79,12 +84,12 @@ const Navbar = ({ isLoggedIn, handleSignOut, displayName }) => {
               display: { xs: "none", md: "flex" },
               fontFamily: "monospace",
               fontWeight: 700,
-              letterSpacing: ".3rem",
+              letterSpacing: ".2rem",
               color: "inherit",
               textDecoration: "none",
             }}
           >
-            LOGO
+            USA File Pro
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -128,7 +133,12 @@ const Navbar = ({ isLoggedIn, handleSignOut, displayName }) => {
               </MenuItem>
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
+          <IconButton onClick={() => navigation("/")} sx={{ p: 0 }}>
+            <Avatar
+              src={fileLogo}
+              sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}
+            />
+          </IconButton>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {isLoggedIn && (
               <>
@@ -158,12 +168,12 @@ const Navbar = ({ isLoggedIn, handleSignOut, displayName }) => {
               flexGrow: 1,
               fontFamily: "monospace",
               fontWeight: 700,
-              letterSpacing: ".3rem",
+              letterSpacing: ".2rem",
               color: "inherit",
               textDecoration: "none",
             }}
           >
-            LOGO
+            USA File Pro
           </Typography>
           <Box sx={{ flexGrow: 0 }}>
             {isLoggedIn ? (
