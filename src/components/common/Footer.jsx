@@ -13,9 +13,6 @@ const Footer = () => {
             <Link to="/comingsoon">
               <li>Our Team</li>
             </Link>
-            <Link to="/comingsoon">
-              <li>Contact Us</li>
-            </Link>
           </ul>
         </div>
         <div className="legal-section">
