@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./footer.css";
-import EmployeeDisclamer from "../assets/USAFILEPRO,INC.EMPLOYEEDISCLAIMER.pdf";
+import EmployeeDisclaimer from "../assets/USAFILEPRO,INC.EMPLOYEEDISCLAIMER.pdf";
 
 const Footer = () => {
   return (
@@ -18,7 +18,7 @@ const Footer = () => {
         <div className="legal-section">
           <h3>Legal</h3>
           <ul>
-            <a href={EmployeeDisclamer}>
+            <a href={EmployeeDisclaimer} target="_blank">
               <li>Employee Disclaimer</li>
             </a>
           </ul>
