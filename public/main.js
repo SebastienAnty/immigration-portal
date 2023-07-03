@@ -12,7 +12,7 @@ const createWindow = () => {
     },
   });
 
-  win.loadURL("http://localhost:3000");
+  win.loadURL("https://immigration-portal-eb.web.app");
 };
 // ...
 app.whenReady().then(() => {
