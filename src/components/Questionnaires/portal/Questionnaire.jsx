@@ -14,6 +14,10 @@ const Questionnaire = () => {
     const storedQuestionIndex = localStorage.getItem("currentQuestionIndex");
     if (storedQuestionIndex !== null) {
       setCurrentQuestion(parseInt(storedQuestionIndex, 10));
+    } else {
+      setCurrentQuestion(0);
+      setAnswers([]);
+      setPrevQuestion(null);
     }
   }, []);
 
