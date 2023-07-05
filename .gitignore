@@ -12,6 +12,7 @@ firebaseConfig.js
 
 # production
 /build
+/USAProFile
 
 # misc
 .DS_Store

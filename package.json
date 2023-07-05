@@ -26,12 +26,13 @@
   "main": "public/main.js",
   "homepage": "./",
   "scripts": {
+    "package": "asar pack USAProFile/USAProFile.app/Contents/Resources/app USAProFile/USAProFile.app/Contents/Resources/app.asar",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "electron:serve": "concurrently -k \"cross-env BROWSER=none npm start\" \"npm run electron:start\"",
-    "electron:build": "electron-packager . USAProFile --platform=darwin,win32,linux --arch=x64",
+    "electron:build": "electron-packager . USAProFile --ignore=node_modules/electron-*",
     "electron:start": "wait-on tcp:3000 && electron ."
   },
   "eslintConfig": {
@@ -53,6 +54,7 @@
     ]
   },
   "devDependencies": {
+    "asar": "^3.2.0",
     "electron": "^25.2.0",
     "electron-packager": "^17.1.1"
   }
